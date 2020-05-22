@@ -25,3 +25,47 @@ L.control.layers({
     "OpenTopoMap": L.tileLayer.provider("OpenTopoMap")
 }).addTo(map);
 
+// let radwegeUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:RADWEGEOGD&srsName=EPSG:4326&outputFormat=json";
+
+let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
+
+let abstell = L.geoJson.ajax(abstellUrl, {
+    pointToLayer: function (point, latlng){
+        let marker = L.marker(latlng);
+        console.log("Point", point);
+        marker.bindPopup(`<h3>${point.properties.ADRESSE}</h3>
+        <h3>${point.properties.ANZAHL}</h3>
+        `);
+        return marker;
+    }
+}).addTo(map);
+
+
+
+// let sights = L.geoJson.ajax(sightUrl, {
+//     pointToLayer: function (point, latlng) {
+//         let icon = L.icon({
+//             iconUrl: 'icons/sight.svg',
+//             iconSize: [32, 32]
+//         });
+//         let marker = L.marker(latlng, {
+//             icon: icon
+//         });
+//         // console.log("Point", point);
+
+//         //Variable für "keine Anmerkung verfügbar"
+//         let anmerkung;
+//         if (point.properties.BEMERKUNG == null) {
+//             anmerkung = "keine näheren Informationen vorhanden";
+//         } else {
+//             anmerkung = point.properties.BEMERKUNG;
+//         }
+
+//         marker.bindPopup(`<h3>${point.properties.NAME}</h3>
+//         <p>${anmerkung}</p>
+//         <p><b></b>Adresse:</b> ${point.properties.ADRESSE}</p>
+//         <p><a target="links" href="${point.properties.WEITERE_INF}">Link</a></p>
+//         `);
+//         return marker;
+//     }
+// });
