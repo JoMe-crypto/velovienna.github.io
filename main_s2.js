@@ -10,52 +10,87 @@ let map = L.map("map", {
     ]
 });
 
+// Layer Auswahl
+
+let themenradweg_1 = L.featureGroup().addTo(map);
+let themenradweg_2 = L.featureGroup().addTo(map);
+let themenradweg_3 = L.featureGroup().addTo(map);
+let themenradweg_4 = L.featureGroup().addTo(map);
+let themenradweg_5 = L.featureGroup().addTo(map);
+let themenradweg_6 = L.featureGroup().addTo(map);
+
+L.control.layers({
+    "BasemapAT": startLayer,
+    "CycleOSM": L.tileLayer.provider("CyclOSM"),
+    // "BasemapAT.terrain": L.tileLayer.provider("BasemapAT.terrain"),
+    // "BasemapAT.surface": L.tileLayer.provider("BasemapAT.surface"),
+    "BasemapAT.orthofoto": L.tileLayer.provider("BasemapAT.orthofoto"),
+    "Stamen.Terrain": L.tileLayer.provider("Stamen.Terrain"),
+    "OpenTopoMap": L.tileLayer.provider("OpenTopoMap")
+}, {
+    "Wiental-Radweg": themenradweg_1,
+    "Ring-Rund-Radweg": themenradweg_2,
+    "Gürtel-Radweg": themenradweg_3,
+    "Donau-Radweg": themenradweg_4,
+    "City-Radweg": themenradweg_5,
+    "Bernstein-Radweg": themenradweg_6
+
+}).addTo(map);
+
+//Radwege als Elemente der control Anzeige eingebaut
+
 let themenradwege = " https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:THEMENRADWEGOGD&srsName=EPSG:4326&outputFormat=json"
 
-//Funktionen
-
-L.geoJson.ajax(themenradwege, {
-    style: function (feature) {
-        if (feature.properties.BEZEICHNUNG === "Wiental-Radweg") {
-            return {
-                color: "red"
-            };
-        }if (feature.properties.BEZEICHNUNG === "Ring-Rund-Radweg") {
-            return {
-                color: "green"
-            };
-        }if (feature.properties.BEZEICHNUNG === "Gürtel-Radweg") {
-            return {
-                color: "yellow"
-            };
-
-        }if (feature.properties.BEZEICHNUNG === "Donau-Radweg") {
-            return {
-                color: "purple"
-            };
-
-        }if (feature.properties.BEZEICHNUNG === "City-Radweg") {
-            return {
-                color: "black"
-            };
-        }if (feature.properties.BEZEICHNUNG === "Bernstein-Radweg") {
-            return {
-                color: "pink"
-            }
+let themenradweg1 = L.geoJson.ajax(themenradwege,{
+    filter: function (feature) {
+        if (feature.properties.BEZEICHNUNG === "Wiental-Radweg"){
+            return true;
         }
-    },
-    onEachFeature: function (feature) {
-        console.log(feature);
     }
-}).addTo(map);
 
-let test = themenradwege.feature.properties.BEZEICHNUNG === "Wiental-Radweg";
+}).addTo(themenradweg_1)
 
-let controlElevation = L.control.elevation({
-    theme: "adler-theme",
-    detached: true,
-    elevationDiv: "#profile",
-    followMarker: false
-}).addTo(map);
+let themenradweg2 = L.geoJson.ajax(themenradwege,{
+    filter: function (feature) {
+        if (feature.properties.BEZEICHNUNG === "Ring-Rund-Radweg"){
+            return true;
+        }
+    }
 
-controlElevation.load(test)
+}).addTo(themenradweg_2)
+
+let themenradweg3 = L.geoJson.ajax(themenradwege,{
+    filter: function (feature) {
+        if (feature.properties.BEZEICHNUNG === "Gürtel-Radweg"){
+            return true;
+        }
+    }
+
+}).addTo(themenradweg_3)
+
+let themenradweg4 = L.geoJson.ajax(themenradwege,{
+    filter: function (feature) {
+        if (feature.properties.BEZEICHNUNG === "Donau-Radweg"){
+            return true;
+        }
+    }
+
+}).addTo(themenradweg_4)
+
+let themenradweg5 = L.geoJson.ajax(themenradwege,{
+    filter: function (feature) {
+        if (feature.properties.BEZEICHNUNG === "City-Radweg"){
+            return true;
+        }
+    }
+
+}).addTo(themenradweg_5)
+
+let themenradweg6 = L.geoJson.ajax(themenradwege,{
+    filter: function (feature) {
+        if (feature.properties.BEZEICHNUNG === "Bernstein-Radweg"){
+            return true;
+        }
+    }
+
+}).addTo(themenradweg_6)
