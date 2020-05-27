@@ -18,6 +18,7 @@ let themenradweg_3 = L.featureGroup().addTo(map);
 let themenradweg_4 = L.featureGroup().addTo(map);
 let themenradweg_5 = L.featureGroup().addTo(map);
 let themenradweg_6 = L.featureGroup().addTo(map);
+let radetappe = L.featureGroup().addTo(map);
 
 L.control.layers({
     "BasemapAT": startLayer,
@@ -33,7 +34,8 @@ L.control.layers({
     "Gürtel-Radweg": themenradweg_3,
     "Donau-Radweg": themenradweg_4,
     "City-Radweg": themenradweg_5,
-    "Bernstein-Radweg": themenradweg_6
+    "Bernstein-Radweg": themenradweg_6,
+    "Radetappe": radetappe
 
 }).addTo(map);
 
@@ -94,3 +96,22 @@ let themenradweg6 = L.geoJson.ajax(themenradwege,{
     }
 
 }).addTo(themenradweg_6)
+
+
+for (let trk = 0; trk < THEMENRADWEGOGD.length; track++) {
+    console.log(trk)
+    
+}
+
+
+// let drawRadweg = function () {
+//     let gpx = new L.GPX("THEMENRADWEGOGD.gpx", {
+//         async: true,
+//         polyline_options: {
+//             color: "black",
+//             dashArray: [2, 5]
+//         }
+//     }
+// )}.addTo(radetappe);
+
+// drawRadweg();
