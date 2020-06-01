@@ -73,4 +73,15 @@ let brunnen = L.geoJson.ajax(brunnenUrl, {
     }
 }).addTo(brunnenGroup);
 
-// let radwegeUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:RADWEGEOGD&srsName=EPSG:4326&outputFormat=json";
+
+let radwegeUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:RADWEGEOGD&srsName=EPSG:4326&outputFormat=json";
+
+L.geoJson.ajax(radwegeUrl, {
+    style: function(){
+        return {
+            color:"green",
+            weight: 5
+        };
+    }
+}).addTo(map);
+
