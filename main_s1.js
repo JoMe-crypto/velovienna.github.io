@@ -35,43 +35,43 @@ L.control.layers({
 }).addTo(map);
 
 
-let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
+// let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
 
-let abstell = L.geoJson.ajax(abstellUrl, {
-    pointToLayer: function (point, latlng){
-        let marker = L.marker(latlng);
-        console.log("Point", point);
-        marker.bindPopup(`<p><b>Adresse: </b>${point.properties.ADRESSE}</p>
-        <p><i>Anzahl an verfügbaren Stellplätzen: </i>${point.properties.ANZAHL}</p>
-        `);
-        return marker;
-    }
-}).addTo(abstellGroup);
-
-
-let verleihUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:CITYBIKEOGD&srsName=EPSG:4326&outputFormat=json";
-
-let verleih = L.geoJson.ajax(verleihUrl, {
-    pointToLayer: function (point, latlng){
-        let marker = L.marker(latlng);
-        console.log("Point", point);
-        marker.bindPopup(`<h3>${point.properties.STATION}</h3>
-        <h3>${point.properties.ANZAHL}</h3>
-        `);
-        return marker;
-    }
-}).addTo(verleihGroup);
+// let abstell = L.geoJson.ajax(abstellUrl, {
+//     pointToLayer: function (point, latlng){
+//         let marker = L.marker(latlng);
+//         console.log("Point", point);
+//         marker.bindPopup(`<p><b>Adresse: </b>${point.properties.ADRESSE}</p>
+//         <p><i>Anzahl an verfügbaren Stellplätzen: </i>${point.properties.ANZAHL}</p>
+//         `);
+//         return marker;
+//     }
+// }).addTo(abstellGroup);
 
 
+// let verleihUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:CITYBIKEOGD&srsName=EPSG:4326&outputFormat=json";
 
-let brunnenUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRINKBRUNNENOGD&srsName=EPSG:4326&outputFormat=json";
+// let verleih = L.geoJson.ajax(verleihUrl, {
+//     pointToLayer: function (point, latlng){
+//         let marker = L.marker(latlng);
+//         console.log("Point", point);
+//         marker.bindPopup(`<h3>${point.properties.STATION}</h3>
+//         <h3>${point.properties.ANZAHL}</h3>
+//         `);
+//         return marker;
+//     }
+// }).addTo(verleihGroup);
 
-let brunnen = L.geoJson.ajax(brunnenUrl, {
-    pointToLayer: function (point, latlng){
-        let marker = L.marker(latlng);
-        return marker;
-    }
-}).addTo(brunnenGroup);
+
+
+// let brunnenUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRINKBRUNNENOGD&srsName=EPSG:4326&outputFormat=json";
+
+// let brunnen = L.geoJson.ajax(brunnenUrl, {
+//     pointToLayer: function (point, latlng){
+//         let marker = L.marker(latlng);
+//         return marker;
+//     }
+// }).addTo(brunnenGroup);
 
 
 let radwegeUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:RADWEGEOGD&srsName=EPSG:4326&outputFormat=json";
@@ -85,3 +85,25 @@ L.geoJson.ajax(radwegeUrl, {
     }
 }).addTo(map);
 
+// L.geoJson.ajax(radwegeUrl, {
+//     style: function(feature){
+//         if (feature.properties.M18_RANG_SUB ="B"){
+//             return {
+//                 color: "red",
+//                 weight: 5
+//             };
+//             else if (feature.properties.M18_RANG_SUB = "G"){
+//                 return {
+//                     color: "orange",
+//                     weight: 5
+//                 };
+//                 else if (feature.properties.M18_RANG_SUB = "E"){
+//                     return {
+//                         color: "blue",
+//                         weight: 4
+//                     };
+//                 }
+//             }
+//         }
+//     }
+// }).addTo(map);
