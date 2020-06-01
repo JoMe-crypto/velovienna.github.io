@@ -1,15 +1,17 @@
  body {
     max-width: 1280px;
-    margin: auto;
+    /* margin: auto; */
     font-family: 'Roboto', sans-serif;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
  header {
     font-size: 0.8em;
     font-weight: bold;
-    text-align: right;
+    text-align: center;
     padding-right: 1em;
-    margin-top: -2em;
+    margin-top: 2em;
 }
 
 #map{
