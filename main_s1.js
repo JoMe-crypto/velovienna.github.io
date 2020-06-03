@@ -8,8 +8,8 @@ let map = L.map("map", {
     ]
 });
 
-// let abstellGroup = L.featureGroup().addTo(map);
-let abstellGroup = L.markerClusterGroup().addTo(map);
+let abstellGroup = L.featureGroup().addTo(map);
+// let abstellGroup = L.markerClusterGroup().addTo(map);
 let verleihGroup = L.featureGroup().addTo(map);
 // let brunnenGroup = L.featureGroup().addTo(map);
 let trinkbrunnenGroup = L.featureGroup().addTo(map);
@@ -41,15 +41,19 @@ let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeatu
 
 let abstell = L.geoJson.ajax(abstellUrl, {
     pointToLayer: function (point, latlng){
-        let marker = L.marker(latlng);
-        console.log("Point", point);
+        let icon = L.icon({
+            iconUrl: `icons/parking_bicycle.png`,
+            iconSize: [32,32]
+        });
+        let marker = L.marker(latlng, {
+            icon: icon
+        });
         marker.bindPopup(`<p><b>Adresse: </b>${point.properties.ADRESSE}</p>
         <p><i>Anzahl an verfügbaren Stellplätzen: </i>${point.properties.ANZAHL}</p>
         `);
         return marker;
     }
 }).addTo(abstellGroup);
-
 
 let verleihUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:CITYBIKEOGD&srsName=EPSG:4326&outputFormat=json";
 
@@ -68,14 +72,6 @@ let verleih = L.geoJson.ajax(verleihUrl, {
 
 let brunnenUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRINKBRUNNENOGD&srsName=EPSG:4326&outputFormat=json";
 
-//Alle Brunnen anzeigen lassen:
-// let brunnen = L.geoJson.ajax(brunnenUrl, {
-//     pointToLayer: function (point, latlng){
-//         let marker = L.marker(latlng);
-//         return marker;
-//     }
-// }).addTo(brunnenGroup);
-
 //Nur "NAME": "Trinkbrunnen mit Tränke" anzeigen lassen
 let trinkbrunnen = L.geoJson.ajax(brunnenUrl, {
     filter: function (feature) {
@@ -86,7 +82,7 @@ let trinkbrunnen = L.geoJson.ajax(brunnenUrl, {
     pointToLayer: function (point, latlng) {
         let icon = L.icon({
             iconUrl: 'icons/trinkbrunnen.png',
-            iconSize: [32, 32]
+            iconSize: [20, 20]
         });
         let marker = L.marker(latlng, {
             icon: icon
@@ -105,7 +101,7 @@ let trinkbrunnentränke = L.geoJson.ajax(brunnenUrl, {
     pointToLayer: function (point, latlng) {
         let icon = L.icon({
             iconUrl: 'icons/trinkbrunnen.png',
-            iconSize: [32, 32]
+            iconSize: [20, 20]
         });
         let marker = L.marker(latlng, {
             icon: icon
