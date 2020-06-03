@@ -76,9 +76,9 @@ let brunnenUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeatu
 // }).addTo(brunnenGroup);
 
 //Nur "NAME": "Trinkbrunnen mit Tränke" anzeigen lassen
-let trinkbrunnen = L.geoJson.ajax(brunnenUrl,{
+let trinkbrunnen = L.geoJson.ajax(brunnenUrl, {
     filter: function (feature) {
-        if (feature.properties.NAME === "Trinkbrunnen mit Tränke"){
+        if (feature.properties.NAME === "Trinkbrunnen mit Tränke") {
             return true;
         }
     },
@@ -95,9 +95,9 @@ let trinkbrunnen = L.geoJson.ajax(brunnenUrl,{
 }).addTo(trinkbrunnenGroup);
 
 // Nur "NAME": "Trinkbrunnen" anzeigen lassen
-let trinkbrunnentränke = L.geoJson.ajax(brunnenUrl,{
+let trinkbrunnentränke = L.geoJson.ajax(brunnenUrl, {
     filter: function (feature) {
-        if (feature.properties.NAME === "Trinkbrunnen"){
+        if (feature.properties.NAME === "Trinkbrunnen") {
             return true;
         }
     },
@@ -117,28 +117,31 @@ let trinkbrunnentränke = L.geoJson.ajax(brunnenUrl,{
 
 let radwegeUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:RADWEGEOGD&srsName=EPSG:4326&outputFormat=json";
 
+// L.geoJson.ajax(radwegeUrl, {
+//     style: function(){
+//         return {
+//             color:"red",
+//             weight: 3
+//         };
+//     }
+// }).addTo(map);
+
+
+//Basisrouten (B) und Grundnetz (G) anzeigen lassen >> Pop-up funktioniert nicht... (Filter offenbar auch nicht, weil alles blau angezeigt wird, selbst wenn man "blue" und "green" tauscht...)
 L.geoJson.ajax(radwegeUrl, {
-    style: function(){
+    style: function(feature){
+        if (feature.properties.M18_RANG_SUB === "G")
+        return {
+            color:"blue",
+            weight: 3
+        };
+        else if (feature.properties.M18_RANG_SUB==="B")
         return {
             color:"green",
-            weight: 5
+            weight: 3
         };
+    },
+    onEachFeature: function (feature, layer){
+        layer.bindPopup(`${feature.properties.STRNAM}`)
     }
 }).addTo(map);
-
-// Nur die Basisrouten und das Grundnetz anzeigen lassen -> FUNKTIONIERT NOCH NICHT...
-// L.geoJson.ajax(radwegeUrl, {
-//     style: function(feature){
-//         if (feature.properties.M18_RANG_SUB="B"){
-//             return {
-//                 color: "red",
-//                 weight: 5
-//             };
-//             else if (feature.properties.M18_RANG_SUB="G"){
-//             return {
-//                 color:"orange",
-//                 weight: 5
-//             };
-//         }
-//         }
-//     }).addTo(map);
