@@ -8,7 +8,8 @@ let map = L.map("map", {
     ]
 });
 
-let abstellGroup = L.featureGroup().addTo(map);
+// let abstellGroup = L.featureGroup().addTo(map);
+let abstellGroup = L.markerClusterGroup().addTo(map);
 let verleihGroup = L.featureGroup().addTo(map);
 // let brunnenGroup = L.featureGroup().addTo(map);
 let trinkbrunnenGroup = L.featureGroup().addTo(map);
@@ -36,33 +37,33 @@ L.control.layers({
 }).addTo(map);
 
 
-// let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
+let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
 
-// let abstell = L.geoJson.ajax(abstellUrl, {
-//     pointToLayer: function (point, latlng){
-//         let marker = L.marker(latlng);
-//         console.log("Point", point);
-//         marker.bindPopup(`<p><b>Adresse: </b>${point.properties.ADRESSE}</p>
-//         <p><i>Anzahl an verfügbaren Stellplätzen: </i>${point.properties.ANZAHL}</p>
-//         `);
-//         return marker;
-//     }
-// }).addTo(abstellGroup);
+let abstell = L.geoJson.ajax(abstellUrl, {
+    pointToLayer: function (point, latlng){
+        let marker = L.marker(latlng);
+        console.log("Point", point);
+        marker.bindPopup(`<p><b>Adresse: </b>${point.properties.ADRESSE}</p>
+        <p><i>Anzahl an verfügbaren Stellplätzen: </i>${point.properties.ANZAHL}</p>
+        `);
+        return marker;
+    }
+}).addTo(abstellGroup);
 
 
-// let verleihUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:CITYBIKEOGD&srsName=EPSG:4326&outputFormat=json";
+let verleihUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:CITYBIKEOGD&srsName=EPSG:4326&outputFormat=json";
 
-// let verleih = L.geoJson.ajax(verleihUrl, {
-//     pointToLayer: function (point, latlng){
-//         let marker = L.marker(latlng);
-//         console.log("Point", point);
-//         marker.bindPopup(`<h3>${point.properties.STATION}</h3>
-//         <h3>${point.properties.ANZAHL}</h3>
-//         `);
-//         return marker;
-//     }
-// }).addTo(verleihGroup);
-
+let verleih = L.geoJson.ajax(verleihUrl, {
+    pointToLayer: function (point, latlng){
+        let marker = L.marker(latlng);
+        console.log("Point", point);
+        marker.bindPopup(`<p><b>Standort: </b>${point.properties.STATION}</p>
+        <p><i>max. Anzahl an Leihrädern: </i>${point.properties.ANZAHL}</p>
+        `);
+        return marker;
+    }
+}).addTo(verleihGroup);
+//ACHTUNG: Auf die Information "max. Anzahl an Leihrädern kann offenbar nicht zugegriffen werden! -> "undefined"
 
 
 let brunnenUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRINKBRUNNENOGD&srsName=EPSG:4326&outputFormat=json";
