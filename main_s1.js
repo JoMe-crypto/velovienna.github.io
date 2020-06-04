@@ -36,6 +36,10 @@ L.control.layers({
 
 }).addTo(map);
 
+L.control.reachability({
+    // add settings/options here
+    apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5'
+}).addTo(map);
 
 let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
 
@@ -87,7 +91,7 @@ let trinkbrunnen = L.geoJson.ajax(brunnenUrl, {
     pointToLayer: function (point, latlng) {
         let icon = L.icon({
             iconUrl: 'icons/trinkbrunnen.png',
-            iconSize: [20, 20]
+            iconSize: [32, 32]
         });
         let marker = L.marker(latlng, {
             icon: icon
@@ -106,7 +110,7 @@ let trinkbrunnentränke = L.geoJson.ajax(brunnenUrl, {
     pointToLayer: function (point, latlng) {
         let icon = L.icon({
             iconUrl: 'icons/trinkbrunnen.png',
-            iconSize: [20, 20]
+            iconSize: [32, 32]
         });
         let marker = L.marker(latlng, {
             icon: icon
@@ -129,7 +133,7 @@ let radwegeUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeatu
 // }).addTo(map);
 
 
-//Basisrouten (B) und Grundnetz (G) anzeigen lassen >> Pop-up funktioniert nicht... (Filter offenbar auch nicht, weil alles blau angezeigt wird, selbst wenn man "blue" und "green" tauscht...)
+//Basisrouten (B) und Grundnetz (G) anzeigen lassen >> Pop-up gibt nur "undefined" aus Filter funktioniert nicht, weil alles blau angezeigt wird, selbst wenn man "blue" und "green" tauscht...)
 L.geoJson.ajax(radwegeUrl, {
     style: function(feature){
         if (feature.properties.M18_RANG_SUB === "G")
@@ -147,3 +151,21 @@ L.geoJson.ajax(radwegeUrl, {
         layer.bindPopup(`${feature.properties.STRNAM}`)
     }
 }).addTo(map);
+
+// Cheat-Sheet – Leaflet-Plugin
+// API-key: 5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5
+// <script>
+        //     // Create the Leaflet map object
+        //     var map = L.map('map', { center: [53.4189, -2.33] });
+    
+        //     // Create a Leaflet tile layer object
+        //     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        //     }).addTo(map);
+    
+        //     // Initialise the reachability plugin
+        //     L.control.reachability({
+        //         // add settings/options here
+        //         apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5'
+        //     }).addTo(map);
+        // </script>
