@@ -13,6 +13,7 @@ let abstellGroup = L.featureGroup().addTo(map);
 let verleihGroup = L.featureGroup().addTo(map);
 // let brunnenGroup = L.featureGroup().addTo(map);
 let trinkbrunnenGroup = L.featureGroup().addTo(map);
+let radwegeGroup = L.featureGroup().addTo(map);
 
 // var mymap = L.map(map).setView([48.208354, 16.372504], 13)
 
@@ -32,14 +33,15 @@ L.control.layers({
 }, {
     "Abstellanlagen": abstellGroup,
     "Citybike-Stationen": verleihGroup,
-    "Trinkbrunnen": trinkbrunnenGroup
+    "Trinkbrunnen": trinkbrunnenGroup,
+    "Radwege": radwegeGroup
 
 }).addTo(map);
 
 L.control.reachability({
     // add settings/options here
     apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5',
-    
+
     drawButtonContent:"",
     drawButtonStyleClass: "fa-pencil-alt",
     drawButtonTooltip: "Ausganspunkt setzen",
@@ -190,7 +192,7 @@ L.geoJson.ajax(radwegeUrl, {
     onEachFeature: function (feature, layer){
         layer.bindPopup(`${feature.properties.STRNAM}`)
     }
-}).addTo(map);
+}).addTo(radwegeGroup);
 
 // Cheat-Sheet – Leaflet-Plugin
 // API-key: 5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5
