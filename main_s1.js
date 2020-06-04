@@ -38,7 +38,47 @@ L.control.layers({
 
 L.control.reachability({
     // add settings/options here
-    apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5'
+    apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5',
+    
+    drawButtonContent:"",
+    drawButtonStyleClass: "fa-pencil-alt",
+    drawButtonTooltip: "Ausganspunkt setzen",
+
+    deleteButtonContent:"",
+    deleteButtonStyleClass: "",
+    deleteButtonTooltip: "Reichweite löschen",
+
+    distanceButtonContent:"",
+    distanceButtonStyleClass: "",
+    distanceButtonTooltip: "Reichweite nach Distanz",
+
+    timeButtonContent:"",
+    timeButtonStyleClass: "",
+    timeButtonTooltip: "Reichweite nach Zeit",
+
+    travelModeButton1Content: "",
+    travelModeButton1StyleClass: "",
+    travelModeButton1Tooltip: "Fortbewegungsart: Auto",
+
+    travelModeButton2Content: "",
+    travelModeButton2StyleClass: "",
+    travelModeButton2Tooltip: "Fortbewegungsart: Rad",
+
+    travelModeButton3Content: "",
+    travelModeButton3StyleClass: "",
+    travelModeButton3Tooltip: "Fortbewegungsart: zu Fuß",
+
+    travelModeButton4Content: "",
+    travelModeButton4StyleClass: "",
+    travelModeButton4Tooltip: "Fortbewegungsart: e-bike",
+    travelModeProfile4: "cycling-electric",
+
+    rangeControlDistanceTitle: "Distanz",
+    rangeControlDistanceMax: 10,
+    rangeControlDistanceInterval: 1,
+    rangeControlTimeTitle: "Zeit",
+    rangeControlTimeMax: 60,
+    rangeControlTimeInterval: 10
 }).addTo(map);
 
 let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
