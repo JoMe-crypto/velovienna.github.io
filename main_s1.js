@@ -59,8 +59,13 @@ let verleihUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeatu
 
 let verleih = L.geoJson.ajax(verleihUrl, {
     pointToLayer: function (point, latlng){
-        let marker = L.marker(latlng);
-        console.log("Point", point);
+        let icon = L.icon({
+            iconUrl: `icons/citybike.png`,
+            iconSize: [32,32]
+        });
+        let marker = L.marker(latlng, {
+            icon: icon
+        });
         marker.bindPopup(`<p><b>Standort: </b>${point.properties.STATION}</p>
         <p><i>max. Anzahl an Leihrädern: </i>${point.properties.ANZAHL}</p>
         `);
