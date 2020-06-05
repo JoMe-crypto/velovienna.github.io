@@ -3,7 +3,7 @@ let map = L.map("map", {
     center: [48.20833, 16.373056],
     zoom: 12, 
     layers:[
-        L.tileLayer.provider("BasemapAT") 
+        startLayer
     ]
 });
 
