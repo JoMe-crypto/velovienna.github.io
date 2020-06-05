@@ -9,8 +9,11 @@ let map = L.map("map", {
 });
 
 let abstellGroup = L.featureGroup().addTo(map);
+// let abstellGroup = L.markerClusterGroup().addTo(map);
 let verleihGroup = L.featureGroup().addTo(map);
-let brunnenGroup = L.featureGroup().addTo(map);
+// let brunnenGroup = L.featureGroup().addTo(map);
+let trinkbrunnenGroup = L.featureGroup().addTo(map);
+let radwegeGroup = L.featureGroup().addTo(map);
 
 // var mymap = L.map(map).setView([48.208354, 16.372504], 13)
 
@@ -30,80 +33,181 @@ L.control.layers({
 }, {
     "Abstellanlagen": abstellGroup,
     "Citybike-Stationen": verleihGroup,
-    "Trinkbrunnen": brunnenGroup
+    "Trinkbrunnen": trinkbrunnenGroup,
+    "Radwege": radwegeGroup
 
 }).addTo(map);
 
+L.control.reachability({
+    // add settings/options here
+    apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5',
 
-// let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
+    drawButtonContent:"",
+    drawButtonStyleClass: "fa-pencil-alt",
+    drawButtonTooltip: "Ausganspunkt setzen",
 
-// let abstell = L.geoJson.ajax(abstellUrl, {
-//     pointToLayer: function (point, latlng){
-//         let marker = L.marker(latlng);
-//         console.log("Point", point);
-//         marker.bindPopup(`<p><b>Adresse: </b>${point.properties.ADRESSE}</p>
-//         <p><i>Anzahl an verfügbaren Stellplätzen: </i>${point.properties.ANZAHL}</p>
-//         `);
-//         return marker;
-//     }
-// }).addTo(abstellGroup);
+    deleteButtonContent:"",
+    deleteButtonStyleClass: "",
+    deleteButtonTooltip: "Reichweite löschen",
+
+    distanceButtonContent:"",
+    distanceButtonStyleClass: "",
+    distanceButtonTooltip: "Reichweite nach Distanz",
+
+    timeButtonContent:"",
+    timeButtonStyleClass: "",
+    timeButtonTooltip: "Reichweite nach Zeit",
+
+    travelModeButton1Content: "",
+    travelModeButton1StyleClass: "",
+    travelModeButton1Tooltip: "Fortbewegungsart: Auto",
+
+    travelModeButton2Content: "",
+    travelModeButton2StyleClass: "",
+    travelModeButton2Tooltip: "Fortbewegungsart: Rad",
+
+    travelModeButton3Content: "",
+    travelModeButton3StyleClass: "",
+    travelModeButton3Tooltip: "Fortbewegungsart: zu Fuß",
+
+    travelModeButton4Content: "",
+    travelModeButton4StyleClass: "",
+    travelModeButton4Tooltip: "Fortbewegungsart: e-bike",
+    travelModeProfile4: "cycling-electric",
+
+    rangeControlDistanceTitle: "Distanz",
+    rangeControlDistanceMax: 10,
+    rangeControlDistanceInterval: 1,
+    rangeControlTimeTitle: "Zeit",
+    rangeControlTimeMax: 60,
+    rangeControlTimeInterval: 10
+}).addTo(map);
+
+let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
+
+let abstell = L.geoJson.ajax(abstellUrl, {
+    pointToLayer: function (point, latlng){
+        let icon = L.icon({
+            iconUrl: `icons/parking_bicycle.png`,
+            iconSize: [32,32]
+        });
+        let marker = L.marker(latlng, {
+            icon: icon
+        });
+        marker.bindPopup(`<p><b>Adresse: </b>${point.properties.ADRESSE}</p>
+        <p><i>Anzahl an verfügbaren Stellplätzen: </i>${point.properties.ANZAHL}</p>
+        `);
+        return marker;
+    }
+}).addTo(abstellGroup);
+
+let verleihUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:CITYBIKEOGD&srsName=EPSG:4326&outputFormat=json";
+
+let verleih = L.geoJson.ajax(verleihUrl, {
+    pointToLayer: function (point, latlng){
+        let icon = L.icon({
+            iconUrl: `icons/citybike.png`,
+            iconSize: [32,32]
+        });
+        let marker = L.marker(latlng, {
+            icon: icon
+        });
+        marker.bindPopup(`<p><b>Standort: </b>${point.properties.STATION}</p>
+        <p><i>max. Anzahl an Leihrädern: </i>${point.properties.ANZAHL}</p>
+        `);
+        return marker;
+    }
+}).addTo(verleihGroup);
+//ACHTUNG: Auf die Information "max. Anzahl an Leihrädern kann offenbar nicht zugegriffen werden! -> "undefined"
 
 
-// let verleihUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:CITYBIKEOGD&srsName=EPSG:4326&outputFormat=json";
+let brunnenUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRINKBRUNNENOGD&srsName=EPSG:4326&outputFormat=json";
 
-// let verleih = L.geoJson.ajax(verleihUrl, {
-//     pointToLayer: function (point, latlng){
-//         let marker = L.marker(latlng);
-//         console.log("Point", point);
-//         marker.bindPopup(`<h3>${point.properties.STATION}</h3>
-//         <h3>${point.properties.ANZAHL}</h3>
-//         `);
-//         return marker;
-//     }
-// }).addTo(verleihGroup);
+//Nur "NAME": "Trinkbrunnen mit Tränke" anzeigen lassen
+let trinkbrunnen = L.geoJson.ajax(brunnenUrl, {
+    filter: function (feature) {
+        if (feature.properties.NAME === "Trinkbrunnen mit Tränke") {
+            return true;
+        }
+    },
+    pointToLayer: function (point, latlng) {
+        let icon = L.icon({
+            iconUrl: 'icons/trinkbrunnen.png',
+            iconSize: [32, 32]
+        });
+        let marker = L.marker(latlng, {
+            icon: icon
+        })
+        return marker
+    }
+}).addTo(trinkbrunnenGroup);
 
+// Nur "NAME": "Trinkbrunnen" anzeigen lassen
+let trinkbrunnentränke = L.geoJson.ajax(brunnenUrl, {
+    filter: function (feature) {
+        if (feature.properties.NAME === "Trinkbrunnen") {
+            return true;
+        }
+    },
+    pointToLayer: function (point, latlng) {
+        let icon = L.icon({
+            iconUrl: 'icons/trinkbrunnen.png',
+            iconSize: [32, 32]
+        });
+        let marker = L.marker(latlng, {
+            icon: icon
+        })
+        return marker
+    }
+}).addTo(trinkbrunnenGroup);
 
-
-// let brunnenUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRINKBRUNNENOGD&srsName=EPSG:4326&outputFormat=json";
-
-// let brunnen = L.geoJson.ajax(brunnenUrl, {
-//     pointToLayer: function (point, latlng){
-//         let marker = L.marker(latlng);
-//         return marker;
-//     }
-// }).addTo(brunnenGroup);
 
 
 let radwegeUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:RADWEGEOGD&srsName=EPSG:4326&outputFormat=json";
 
-L.geoJson.ajax(radwegeUrl, {
-    style: function(){
-        return {
-            color:"green",
-            weight: 5
-        };
-    }
-}).addTo(map);
-
 // L.geoJson.ajax(radwegeUrl, {
-//     style: function(feature){
-//         if (feature.properties.M18_RANG_SUB ="B"){
-//             return {
-//                 color: "red",
-//                 weight: 5
-//             };
-//             else if (feature.properties.M18_RANG_SUB = "G"){
-//                 return {
-//                     color: "orange",
-//                     weight: 5
-//                 };
-//                 else if (feature.properties.M18_RANG_SUB = "E"){
-//                     return {
-//                         color: "blue",
-//                         weight: 4
-//                     };
-//                 }
-//             }
-//         }
+//     style: function(){
+//         return {
+//             color:"red",
+//             weight: 3
+//         };
 //     }
 // }).addTo(map);
+
+
+//Basisrouten (B) und Grundnetz (G) anzeigen lassen >> Pop-up gibt nur "undefined" aus Filter funktioniert nicht, weil alles blau angezeigt wird, selbst wenn man "blue" und "green" tauscht...)
+L.geoJson.ajax(radwegeUrl, {
+    style: function(feature){
+        if (feature.properties.M18_RANG_SUB === "G")
+        return {
+            color:"blue",
+            weight: 3
+        };
+        else if (feature.properties.M18_RANG_SUB==="B")
+        return {
+            color:"green",
+            weight: 3
+        };
+    },
+    onEachFeature: function (feature, layer){
+        layer.bindPopup(`${feature.properties.STRNAM}`)
+    }
+}).addTo(radwegeGroup);
+
+// Cheat-Sheet – Leaflet-Plugin
+// API-key: 5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5
+// <script>
+        //     // Create the Leaflet map object
+        //     var map = L.map('map', { center: [53.4189, -2.33] });
+    
+        //     // Create a Leaflet tile layer object
+        //     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        //     }).addTo(map);
+    
+        //     // Initialise the reachability plugin
+        //     L.control.reachability({
+        //         // add settings/options here
+        //         apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5'
+        //     }).addTo(map);
+        // </script>
