@@ -2,8 +2,10 @@ body{
     width: 100%;
     height: 360px;
     font-family: 'Roboto', sans-serif;
-    margin-left: 1em;
+    margin: auto
+    /*margin-left: 1em;
     margin-right: 1em;
+   */
 }
 
 header {
