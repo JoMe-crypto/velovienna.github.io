@@ -23,7 +23,7 @@ L.control.layers({
     "Tempertaur °C": overlay.temperature
 }).addTo(map);
 
-L.control.rainviewer({
+let rainviewer = L.control.rainviewer({
     position: 'bottomleft',
     nextButtonText: '>',
     playStopButtonText: 'Start/Stop',
@@ -32,4 +32,4 @@ L.control.rainviewer({
     opacitySliderLabelText: "Opacity:",
     animationInterval: 500,
     opacity: 0.5
-}); addTo(map);
+});rainviewer.addTo(map);
