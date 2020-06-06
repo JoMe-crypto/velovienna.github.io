@@ -22,18 +22,3 @@ L.control.layers({
     "Wetterstationen Österreich": overlay.stations,
     "Tempertaur °C": overlay.temperature
 }).addTo(map);
-
-(function() {
-   'use strict';
-  
-    var map = L.map('mapContainer');
-  
-    $.get('tawes1h', function(csvContents) {
-      var geoLayer = L.geoCsv(csvContents, {firstLineTitles: true, fieldSeparator: ','});
-      map.addLayer(geoLayer);
-    });
-  });
-
-// let wetterUrl  = ""; 
-
-// let wetterUrl = L.geoJson.ajax(wetterUrl).addTo(map);
