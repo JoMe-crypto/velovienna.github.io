@@ -23,4 +23,17 @@ L.control.layers({
     "Tempertaur °C": overlay.temperature
 }).addTo(map);
 
-let wetterUrl  = "http://www.zamg.ac.at/ogd/"; 
+(function() {
+   'use strict';
+  
+    var map = L.map('mapContainer');
+  
+    $.get('tawes1h', function(csvContents) {
+      var geoLayer = L.geoCsv(csvContents, {firstLineTitles: true, fieldSeparator: ','});
+      map.addLayer(geoLayer);
+    });
+  });
+
+// let wetterUrl  = ""; 
+
+// let wetterUrl = L.geoJson.ajax(wetterUrl).addTo(map);
