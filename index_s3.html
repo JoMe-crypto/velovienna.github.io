@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>velovienna - Wetterinfo</title>
+
+    <!-- Einfügen Leaflet -->
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+    <!-- Einfügen Leaflet providers Hintergrundkarten -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.9.1/leaflet-providers.js"></script>
+
+    <!-- Einfügen Leaflet providers Hintergrundkarten -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+
+    <!--Einfügen google font-->
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="main_s3.css">
+    <script defer src="main_s3.js"></script>
+
+</head>
+
+<body>
+    <header>
+        
+        <img class="banner" src="images/vienna_night.png" alt="vienna panorama at night">
+        <h1>Wien Wetterinfo</h1>
+        <p>Angezeigt Daten werden bereigestellt von: LINK </p> 
+    </header>
+    <main>
+        <h2>Wetterstationen in Österreich</h2> <i class="fab fa-download"></i>
+        <p>Stündlich aktualisierte Messwerte von 21 Wetterstationen in Österreich.<a href="https://www.data.gv.at/katalog/dataset/9b40a0af-a6fe-47ff-9624-2ea8f40c746f">Daten auf Open Data Österreich</a>
+        </p>
+        <div id="map"></div>
+        <ul>
+            <li>Lufttemperatur (LT)</li>
+            <li>Luftdruck (LD) in [hPa]</li>
+            <li>Windgeschwindingkeit udn Windböen (WG,WG_BOE) in [ms/s]</li>
+            <li>Windrichtung (WR) in [°]</li>
+        </ul>
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a class="back" href="http://127.0.0.1:5501/index_s1.html">Wien für Radfahrer</a></li>
+                <li><a class="back" href="http://127.0.0.1:5501/index_s2.html">Themenradwege</a></li>
+            </ul>
+            <address>
+                <a href="mailto:johannes.melchert@student.uibk.ac.at"><i class="fas fa-paper-plane"></i>
+                    Johannes Melchert</a> -
+                <a href="https://github.com/JoMe-crypto/JoMe-crypto.github.io.git">github.com/JoMe-crypto <i
+                        class="fab fa-github"></i></a>
+                <span>Open Government Data (OGD)</span>
+            </address>
+        </nav>
+    </footer>
+</body>
+
+</html>
