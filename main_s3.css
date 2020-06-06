@@ -23,3 +23,13 @@ footer {
     height: 360px;
     border: 1px solid gray;
 }
+
+@media screen and (max-width:900px){
+    main {
+        max-width: 90%;
+    }
+
+    header img.banner {
+        width: 100vw;
+    }
+}
