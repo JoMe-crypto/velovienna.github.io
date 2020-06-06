@@ -7,10 +7,20 @@ let map = L.map("map", {
     ]
 });
 
+let overlay ={
+    stations: L.featureGroup(),
+    temperature: L.featureGroup()
+}
+
 L.control.layers({
     "BasemapAT": startLayer,
     "CycleOSM": L.tileLayer.provider("CyclOSM"),
     "BasemapAT.orthofoto":L.tileLayer.provider("BasemapAT.orthofoto"),
     "Stamen.Terrain": L.tileLayer.provider("Stamen.Terrain"),
     "OpenTopoMap": L.tileLayer.provider("OpenTopoMap")
+}, {
+    "Wetterstationen Österreich": overlay.stations,
+    "Tempertaur °C": overlay.temperature
 }).addTo(map);
+
+let wetterUrl  = "http://www.zamg.ac.at/ogd/"; 
