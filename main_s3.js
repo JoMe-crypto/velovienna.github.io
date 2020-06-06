@@ -22,3 +22,14 @@ L.control.layers({
     "Wetterstationen Österreich": overlay.stations,
     "Tempertaur °C": overlay.temperature
 }).addTo(map);
+
+L.control.rainviewer({
+    position: 'bottomleft',
+    nextButtonText: '>',
+    playStopButtonText: 'Start/Stop',
+    prevButtonText: '<',
+    positionSliderLabelText: "Time:",
+    opacitySliderLabelText: "Opacity:",
+    animationInterval: 500,
+    opacity: 0.5
+}); addTo(map);
