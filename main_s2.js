@@ -48,6 +48,11 @@ let themenradweg1 = L.geoJson.ajax(themenradwege,{
         if (feature.properties.BEZEICHNUNG === "Wiental-Radweg"){
             return true;
         }
+    },
+    style: function (feature) {
+        return {
+            color: "red"
+        } 
     }
 
 }).addTo(themenradweg_1)
@@ -57,6 +62,11 @@ let themenradweg2 = L.geoJson.ajax(themenradwege,{
         if (feature.properties.BEZEICHNUNG === "Ring-Rund-Radweg"){
             return true;
         }
+    },
+    style: function (feature) {
+        return {
+            color: "blue"
+        } 
     }
 
 }).addTo(themenradweg_2)
@@ -66,6 +76,11 @@ let themenradweg3 = L.geoJson.ajax(themenradwege,{
         if (feature.properties.BEZEICHNUNG === "Gürtel-Radweg"){
             return true;
         }
+    },
+    style: function (feature) {
+        return {
+            color: "yellow"
+        } 
     }
 
 }).addTo(themenradweg_3)
@@ -75,6 +90,11 @@ let themenradweg4 = L.geoJson.ajax(themenradwege,{
         if (feature.properties.BEZEICHNUNG === "Donau-Radweg"){
             return true;
         }
+    },
+    style: function (feature) {
+        return {
+            color: "green"
+        } 
     }
 
 }).addTo(themenradweg_4)
@@ -84,6 +104,11 @@ let themenradweg5 = L.geoJson.ajax(themenradwege,{
         if (feature.properties.BEZEICHNUNG === "City-Radweg"){
             return true;
         }
+    },
+    style: function (feature) {
+        return {
+            color: "magenta"
+        } 
     }
     
 }).addTo(themenradweg_5)
@@ -93,6 +118,11 @@ let themenradweg6 = L.geoJson.ajax(themenradwege,{
         if (feature.properties.BEZEICHNUNG === "Bernstein-Radweg"){
             return true;     
         }
+    },
+    style: function (feature) {
+        return {
+            color: "black"
+        } 
     }
     
 
