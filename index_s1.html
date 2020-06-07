@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,7 @@
     <!--CSS und Javascript-->
     <script defer src="main_s1.js"></script>
     <link rel="stylesheet" href="main_s1.css">
-    
+
     <!--Leaflet für Karte-->
     <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -30,12 +31,16 @@
     <!--Ajax-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
     <!--MarkerCluster Leaflet-->
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
     <!--Leaflet Reachability-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.0/leaflet.reachability.css"/>
-    <script src="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.0/leaflet.reachability.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.0/leaflet.reachability.css" />
+    <script src="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.0/leaflet.reachability.js">
+    </script>
 </head>
 
 
@@ -43,19 +48,39 @@
 
 <body>
     <header>
-       <h1> Velovienna – Wien für Radfahrer </h1>
+        <header>
+
+            <img class="banner" src="images/radfahrer.png" alt="Radfahrer in der Stadt">
+            <h1> <i class="fas fa-bicycle"></i> Velovienna – Wien für Radfahrer <i class="fas fa-bicycle"></i> </h1>
+            <nav>
+                <!-- Achtung! Die Links stimmen noch nicht!!! -->
+                <a class= "link" href="https://de.wikipedia.org/wiki/Wien">Themenradwege</a>
+                <a class = "link" href="https://de.wikipedia.org/wiki/Innsbruck">Wetterinformationen</a>
+            </nav>
+        </header>
     </header>
     <main>
-        <h2>Radfahren in Wien <i class="fas fa-bicycle"></i> </h2>
-        <p> Das Radwegenetz in Wien hat eine Gesamtlänge von etwa 1.431km. Zusätzlich können Radfahrende in Wien das Einbahnwegenetz vielerorts auch gegen die Einbahn befahren, und zwar auf insgesamt 311.912km.<br/>
-            Am Ziel angekommen stehen für Radfahrende 49.100 Radabstellplätze zur Verfügung. Seit 2010 hat sich die Anzahl von damals noch 27.249 fast verdoppelt.
-            Auch die Zahl der Radfahrenden hat sich in den letzten 10 Jahren stark erhöht, was mit Zählstellen erfasst wird. Bei der Zählstelle in der Argentinierstraße hat sich das durchschnittliche tägliche Radfahr-Aufkommen um 108% gesteigert, also mehr als verdoppelt (Vergleich zwischen den Jahren 2010 und 2019). <br/>
-            20 Prozent der Wienerinnen und Wiener sind mehrmals pro Woche mit dem Rad unterwegs, Jüngere und Leute mit höherem Bildungsabschluss sind insgesamt häufiger mit dem Rad unterwegs.
-            Auch in Hinblick auf den Klimawandel setzt die Stadt Wien auf das Radfahren, um ihre Klimaziele zu erreichen: <br/>
-            <i> „Um der Klimakrise zu begegnen, ist für die Stadt Wien die Steigerung des Anteils der klimaschonenden Verkehrsmittel Radfahren und Zu-Fuß-Gehen wichtiger denn je zuvor.“ (Quelle: Mobilitätsreport 2019, Seite 24) </i> <br/> Alle Zahlen wurden dem <a href= "https://www.fahrradwien.at/wp-content/uploads/sites/2/2020/02/Mobilitaetsreport_2019_screen.pdf">Mobilitätsreport 2019</a> entnommen.</p>
+        <h2>Radfahren in Wien </h2>
+        <p> Das Radwegenetz in Wien hat eine Gesamtlänge von etwa 1.431km. Zusätzlich können Radfahrende in Wien das
+            Einbahnwegenetz vielerorts auch gegen die Einbahn befahren, und zwar auf insgesamt 311.912km.<br />
+            Am Ziel angekommen stehen für Radfahrende 49.100 Radabstellplätze zur Verfügung. Seit 2010 hat sich die
+            Anzahl von damals noch 27.249 fast verdoppelt.
+            Auch die Zahl der Radfahrenden hat sich in den letzten 10 Jahren stark erhöht, was mit Zählstellen erfasst
+            wird. Bei der Zählstelle in der Argentinierstraße hat sich das durchschnittliche tägliche Radfahr-Aufkommen
+            um 108% gesteigert, also mehr als verdoppelt (Vergleich zwischen den Jahren 2010 und 2019). <br />
+            20 Prozent der Wienerinnen und Wiener sind mehrmals pro Woche mit dem Rad unterwegs, Jüngere und Leute mit
+            höherem Bildungsabschluss sind insgesamt häufiger mit dem Rad unterwegs.
+            Auch in Hinblick auf den Klimawandel setzt die Stadt Wien auf das Radfahren, um ihre Klimaziele zu
+            erreichen: <br />
+            <i> „Um der Klimakrise zu begegnen, ist für die Stadt Wien die Steigerung des Anteils der klimaschonenden
+                Verkehrsmittel Radfahren und Zu-Fuß-Gehen wichtiger denn je zuvor.“ (Quelle: Mobilitätsreport 2019,
+                Seite 24) </i> <br /> Alle Zahlen wurden dem <a
+                href="https://www.fahrradwien.at/wp-content/uploads/sites/2/2020/02/Mobilitaetsreport_2019_screen.pdf">Mobilitätsreport
+                2019</a> entnommen.</p>
         <h2>Radwege in Wien</h2>
-        <p>Egal ob du mit dem Rad in die Arbeit oder in die Schule unterwegs bist, oder eine sportliche Runde drehen willst: Wien bietet ausreichend Möglichkeiten, damit jeder fündig wird. HIER KOMMT NOCH TEXT UND EVT. AUCH LINKS ZU DEN ANDEREN BEIDEN SEITEN</p>
-        <h2></h2>
+        <p>Egal ob du mit dem Rad in die Arbeit oder in die Schule unterwegs bist, oder eine sportliche Runde drehen
+            willst: Wien bietet ausreichend Möglichkeiten, damit jeder fündig wird. HIER KOMMT NOCH TEXT UND EVT. AUCH
+            LINKS ZU DEN ANDEREN BEIDEN SEITEN</p>
         <h3>Übersichtskarte</h3>
         <!-- <div id="map" data-lat="48.208354" data-long="16.372504"></div> -->
         <div id="map"></div>
@@ -63,24 +88,39 @@
         <h3>Weiterführende Informationen</h3>
         <p>Bei diesen Adressen findest du weitere Informationen zum Radfahren in Wien. </p>
         <ul>
-            <li>Die <a href="https://www.radlobby.at/wien">Radlobby Wien</a> setzt sich für Radfahrende in der Landeshauptstadt ein. Auf ihrer Webseite informieren sie über aktuelle Projekte und Entwicklungen.</li>
-            <li>Mit dem <a href="https://www.fahrradwien.at/routenplaner/">Radroutenplaner</a> der Stadt Wien kommst du noch besser ans Ziel. Neben der Start- und Zieladresse kannst du auch deinen Fahrstil (gemütlich, normal oder schnell) wählen, und bekommst deine Fahrzeit entsprechend berechnet.</a>
+            <li>Die <a href="https://www.radlobby.at/wien">Radlobby Wien</a> setzt sich für Radfahrende in der
+                Landeshauptstadt ein. Auf ihrer Webseite informieren sie über aktuelle Projekte und Entwicklungen.</li>
+            <li>Mit dem <a href="https://www.fahrradwien.at/routenplaner/">Radroutenplaner</a> der Stadt Wien kommst du
+                noch besser ans Ziel. Neben der Start- und Zieladresse kannst du auch deinen Fahrstil (gemütlich, normal
+                oder schnell) wählen, und bekommst deine Fahrzeit entsprechend berechnet.</a>
             </li>
-            <li> Der <a href="https://www.wien.info/de/wien-fuer/sport/radfahren">Wiener Tourismusverband</a> gibt Tipps, wie das Rad in den City-Trip eingebaute werden kann: Von Anreise mit dem Rad, über spezielle Hotels und Pensionen bis hin zu geführten Radtouren, bei denen man Sightseeing einmal anders erleben kann, ist alles dabei.
+            <li> Der <a href="https://www.wien.info/de/wien-fuer/sport/radfahren">Wiener Tourismusverband</a> gibt
+                Tipps, wie das Rad in den City-Trip eingebaute werden kann: Von Anreise mit dem Rad, über spezielle
+                Hotels und Pensionen bis hin zu geführten Radtouren, bei denen man Sightseeing einmal anders erleben
+                kann, ist alles dabei.
             </li>
-            <li> Die Stadt Wien informiert über aktuelle <a href="https://www.wien.gv.at/verkehr/radfahren/radnetz/aktuelle-umleitungen.html">Umleitungen und Sperren</a> – damit du nie mehr wegen einer unpassierbaren Stelle zu spät kommen musst.
+            <li> Die Stadt Wien informiert über aktuelle <a
+                    href="https://www.wien.gv.at/verkehr/radfahren/radnetz/aktuelle-umleitungen.html">Umleitungen und
+                    Sperren</a> – damit du nie mehr wegen einer unpassierbaren Stelle zu spät kommen musst.
             </li>
-            <li>Wer Lust auf eine <a href="https://www.wien.gv.at/verkehr/radfahren/radkarte.html">kostenlose Radkarte</a> von Wien in Papierform hat, kann diese hier ganz einfach nach Hause bestellen. Ähnlich wie auf unserer Webseite, bietet auch diese Karte viele Zusatz-Infos wie Trinkbrunnenstandorte, Citybike-Stationen und einiges mehr.</li>
+            <li>Wer Lust auf eine <a href="https://www.wien.gv.at/verkehr/radfahren/radkarte.html">kostenlose
+                    Radkarte</a> von Wien in Papierform hat, kann diese hier ganz einfach nach Hause bestellen. Ähnlich
+                wie auf unserer Webseite, bietet auch diese Karte viele Zusatz-Infos wie Trinkbrunnenstandorte,
+                Citybike-Stationen und einiges mehr.</li>
         </ul>
     </main>
     <footer>
-        <h1>Datenquellen</h1>
-        <p>Alle Datensätze von data.gv.at: <a href="https://www.data.gv.at/katalog/dataset/523ba2e4-8c55-4dde-8acf-39e3621811b0">Citybike-Standorte</a>,<a href="https://www.data.gv.at/katalog/dataset/97ef14eb-f280-48a7-96c0-df03859b06c2">Radabstellplätze</a>, <a href="https://www.data.gv.at/katalog/dataset/1ea3d3e8-fa07-4c37-af68-eb588d439de2">Radwege</a></p>
-        <p><a href= "https://digitales.wien.gv.at/site/icons/">Icons</a></p>
+        <h2>Datenquellen</h2>
+        <p>Alle Datensätze von data.gv.at: <a
+                href="https://www.data.gv.at/katalog/dataset/523ba2e4-8c55-4dde-8acf-39e3621811b0">Citybike-Standorte</a>,<a
+                href="https://www.data.gv.at/katalog/dataset/97ef14eb-f280-48a7-96c0-df03859b06c2">Radabstellplätze</a>,
+            <a href="https://www.data.gv.at/katalog/dataset/1ea3d3e8-fa07-4c37-af68-eb588d439de2">Radwege</a></p>
+        <p><a href="https://digitales.wien.gv.at/site/icons/">Icons</a></p>
         <p>(c) David, Johannes, Pia 2020</p>
     </footer>
-    
+
 </body>
+
 </html>
 
 

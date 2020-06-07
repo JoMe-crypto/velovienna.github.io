@@ -4,6 +4,7 @@
     font-family: 'Roboto', sans-serif;
     margin-left: 1em;
     margin-right: 1em;
+    line-height: 1.5em;
 }
 
  header {
@@ -17,7 +18,26 @@
 footer {
     font-size:0.1em;
     text-align: right;
+    line-height: 0.5em;
 }
+
+h1 {
+    font-size: 5em;
+    font-weight: bold;
+    color: whitesmoke;
+    background-color: darkblue;
+    border-radius: 0.5em;
+}
+
+.link {
+    border-style: solid;
+    border-radius: 0.5em;
+    background-color: rgb(142, 142, 214);
+    font-size: 1.5em;
+    border-width: 0.5em;
+    border-color: transparent;
+}
+
 
 #map{
     width: 100%;
@@ -26,3 +46,4 @@ footer {
  }
 
  /* font-family: 'Roboto', sans-serif; */
+ /* line-height = Zeilenabstand */
