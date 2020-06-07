@@ -18,13 +18,16 @@ header img {
 
 #Header {
     display: table;
-    background-color: lightgrey;
+    
     width: 100%;
 }
 
 #Header p {
     display: table-cell;
     text-align: center;
+    
+    border: 5px;
+    background-color: lightgrey;
 }
 
 #Radwegauswahl_1,  #Radwegauswahl_2 {

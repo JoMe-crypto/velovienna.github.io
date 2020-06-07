@@ -18,7 +18,7 @@ let themenradweg_3 = L.featureGroup();
 let themenradweg_4 = L.featureGroup();
 let themenradweg_5 = L.featureGroup();
 let themenradweg_6 = L.featureGroup();
-let radetappe = L.featureGroup();
+
 
 L.control.layers({
     "BasemapAT": startLayer,
@@ -35,11 +35,11 @@ L.control.layers({
     "Donau-Radweg": themenradweg_4,
     "City-Radweg": themenradweg_5,
     "Bernstein-Radweg": themenradweg_6,
-    "Radetappe": radetappe
+    
 
 }).addTo(map);
 
-//Radwege als Elemente der control Anzeige eingebaut
+//Einlesen (zu FeatureGroups hinzufügen) und Stylen der Radwege mit Ajax
 
 let themenradwege = " https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:THEMENRADWEGOGD&srsName=EPSG:4326&outputFormat=json"
 
@@ -128,7 +128,7 @@ let themenradweg6 = L.geoJson.ajax(themenradwege,{
 
 }).addTo(themenradweg_6)
 
-
+//Radwege onclick auf das entsprechende Bild aktivieren
 
 function radwegHinzufuegen(clicked_id){
     if (clicked_id == "themenradweg_1"){
