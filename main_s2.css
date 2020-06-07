@@ -1,7 +1,9 @@
-
+body {
+    scroll-behavior: smooth;
+}
 #map {
     width: 100%;
-    height: 360px;
+    height: 500px;
     border: 1px solid gray;
     background-color: grey;
 }
@@ -16,12 +18,15 @@ header img {
 #Radwegauswahl_1,  #Radwegauswahl_2 {
     display: table;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 #Radwegauswahl_1 figure, #Radwegauswahl_2 figure {
     display: table-cell;
     padding: 10px;
     text-align: center;
+    
+
 
 }
 
