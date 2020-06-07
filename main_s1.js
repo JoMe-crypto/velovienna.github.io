@@ -8,11 +8,12 @@ let map = L.map("map", {
     ]
 });
 
-let abstellGroup = L.featureGroup().addTo(map);
-// let abstellGroup = L.markerClusterGroup().addTo(map);
+// let abstellGroup = L.featureGroup().addTo(map);
+let abstellGroup = L.markerClusterGroup().addTo(map);
 let verleihGroup = L.featureGroup().addTo(map);
 // let brunnenGroup = L.featureGroup().addTo(map);
-let trinkbrunnenGroup = L.featureGroup().addTo(map);
+// let trinkbrunnenGroup = L.featureGroup().addTo(map);
+let trinkbrunnenGroup = L.markerClusterGroup().addTo(map);
 let radwegeGroup = L.featureGroup().addTo(map);
 
 // var mymap = L.map(map).setView([48.208354, 16.372504], 13)
@@ -101,6 +102,13 @@ let abstell = L.geoJson.ajax(abstellUrl, {
     }
 }).addTo(abstellGroup);
 
+abstell.on("data:loaded", function() { //nach Laden des Events abstell...
+    abstellGroup.addLayer(abstell); //...gruppierte Abstellanlagen hinzufügen
+    // console.log("data loaded");
+    // map.fitBounds(abstellGroup.getBounds()); //Kartengrenzen an abstellGroup ausrichten
+})
+
+
 let verleihUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:CITYBIKEOGD&srsName=EPSG:4326&outputFormat=json";
 
 let verleih = L.geoJson.ajax(verleihUrl, {
@@ -142,6 +150,12 @@ let trinkbrunnen = L.geoJson.ajax(brunnenUrl, {
     }
 }).addTo(trinkbrunnenGroup);
 
+trinkbrunnen.on("data:loaded", function() { //nach Laden des Events abstell...
+    trinkbrunnenGroup.addLayer(trinkbrunnen); //...gruppierte Abstellanlagen hinzufügen
+    // console.log("data loaded");
+    // map.fitBounds(abstellGroup.getBounds()); //Kartengrenzen an abstellGroup ausrichten
+})
+
 // Nur "NAME": "Trinkbrunnen" anzeigen lassen
 let trinkbrunnentränke = L.geoJson.ajax(brunnenUrl, {
     filter: function (feature) {
@@ -160,6 +174,12 @@ let trinkbrunnentränke = L.geoJson.ajax(brunnenUrl, {
         return marker
     }
 }).addTo(trinkbrunnenGroup);
+
+trinkbrunnentränke.on("data:loaded", function() { //nach Laden des Events abstell...
+    trinkbrunnenGroup.addLayer(trinkbrunnentränke); //...gruppierte Abstellanlagen hinzufügen
+    // console.log("data loaded");
+    // map.fitBounds(abstellGroup.getBounds()); //Kartengrenzen an abstellGroup ausrichten
+})
 
 
 
@@ -180,7 +200,7 @@ L.geoJson.ajax(radwegeUrl, {
     style: function(feature){
         if (feature.properties.M18_RANG_SUB === "G")
         return {
-            color:"blue",
+            color:"red",
             weight: 3
         };
         else if (feature.properties.M18_RANG_SUB==="B")
