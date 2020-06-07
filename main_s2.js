@@ -134,17 +134,53 @@ let themenradweg6 = L.geoJson.ajax(themenradwege,{
 
 function radwegHinzufuegen(clicked_id){
     if (clicked_id == "themenradweg_1"){
-        themenradweg_1.addTo(map)
+        themenradweg_1.addTo(map);
+        //get start und stopppunkt
+
+        // get direction of trail
+
+        //create box for map fit bounds
+        
     }if (clicked_id =="themenradweg_2"){
-        themenradweg_2.addTo(map)
+        themenradweg_2.addTo(map);
+        //get start und stopppunkt
+
+        // get direction of trail
+
+        //create box for map fit bounds
+
     }if(clicked_id =="themenradweg_3"){
-        themenradweg_3.addTo(map)
+        themenradweg_3.addTo(map);
+        //get start und stopppunkt
+        
+        // get direction of trail
+
+        //create box for map fit bounds
+
     }if(clicked_id =="themenradweg_4"){
-        themenradweg_4.addTo(map)
+        themenradweg_4.addTo(map);
+        //get start und stopppunkt
+
+        //get direction of trail
+
+        //create box for map fit bounds
+
     }if(clicked_id =="themenradweg_5"){
-        themenradweg_5.addTo(map)
+        themenradweg_5.addTo(map);
+        //get start und stopppunkt
+
+        //get direction of trail
+
+        //create box for map fit bounds
+
     }if(clicked_id =="themenradweg_6"){
-        themenradweg_6.addTo(map)}
+        themenradweg_6.addTo(map);
+        //get start und stopppunkt
+        
+        //get direction of trail
+
+        //create box for map fit bounds
+    }
 
 };
 
