@@ -18,6 +18,7 @@ let themenradweg_3 = L.featureGroup();
 let themenradweg_4 = L.featureGroup();
 let themenradweg_5 = L.featureGroup();
 let themenradweg_6 = L.featureGroup();
+let wikipedia = L.featureGroup();
 
 
 L.control.layers({
@@ -35,6 +36,7 @@ L.control.layers({
     "Donau-Radweg": themenradweg_4,
     "City-Radweg": themenradweg_5,
     "Bernstein-Radweg": themenradweg_6,
+    "Wikipedia Artikel": wikipedia
     
 
 }).addTo(map);
@@ -145,3 +147,72 @@ function radwegHinzufuegen(clicked_id){
         themenradweg_6.addTo(map)}
 
 };
+
+//wikipedia
+
+let drawnMarkers = {};
+
+map.on("zoomend moveend", function (evt) {
+    let ext = {
+        north : map.getBounds().getNorth(),
+        south: map.getBounds().getSouth(),
+        east: map.getBounds().getEast(),
+        west: map.getBounds().getWest()
+    };
+    let url =`https://secure.geonames.org/wikipediaBoundingBoxJSON?north=${ext.north}&south=${ext.south}&east=${ext.east}&west=${ext.west}&username=csaw4560&lang=de&maxRows=30`;
+    console.log(url);
+
+    let wiki = L.Util.jsonp(url).then( function(data) {
+        //console.log(data.geonames);
+        for (let article of data.geonames) {
+            let ll = `${article.lat}${article.lng}`
+            if (drawnMarkers[ll]) {
+                continue;
+            }else {
+                drawnMarkers[ll] = true;
+            }
+        
+            let png = "";
+            switch(article.feature){
+                case "city":
+                    png ="smallcity.png";
+                    break;
+                case "landmark":
+                    png = "landmark.png";
+                    break;
+                case "waterbody":
+                    png = "lake.png";
+                    break;
+                case "river":
+                    png = "river.png";
+                    break;
+                case "mountain":
+                    png= "mountains.png";
+                    break;
+                default:
+                    png = "information.png";
+
+
+            }
+            let mrk = L.marker([article.lat,article.lng],{
+                icon: L.icon({
+                    iconSize: [32, 37],
+                    iconAnchor: [16, 37],
+                    popupAnchor: [0, -37],
+                    iconUrl: `icons/${png}`
+                })   
+            }).addTo(wikipedia);
+            let img = "";
+            if (article.thumbnailImg) {
+                img = `<img src="${article.thumbnailImg}" alt="thumbnail">`
+            }
+            mrk.bindPopup(`
+                <small>${article.feature}</small>
+                <h3>${article.title} (${article.elevation}m)</h3>
+                ${img}
+                <p>${article.summary}</p>
+                <a target="wikipedia" href="https://${article.wikipediaUrl}">Wikipedia Artikel</a>`)
+            //console.log(article);
+        }
+    });
+});wikipedia.addTo(map);
