@@ -15,9 +15,7 @@
     position: relative;
 }
 
-.leaflet-control-rainviewer-opacityslider,
-.leaflet-control-rainviewer-positionslider,
-.leaflet-control-rainviewer-label {
+.leaflet-control-rainviewer-opacityslider, .leaflet-control-rainviewer-positionslider, .leaflet-control-rainviewer-label{
     display: block;
     clear: both;
     margin-top: 15px;

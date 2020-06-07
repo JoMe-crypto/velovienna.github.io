@@ -9,6 +9,7 @@ L.Control.Rainviewer = L.Control.extend({
         animationInterval: 500,
         opacity: 0.5
     },
+
     onAdd: function (map) {
         /**
          * RainViewer radar animation part
@@ -39,11 +40,11 @@ L.Control.Rainviewer = L.Control.extend({
 
     },
 
-    load: function (map) {
-        /**
+    load: function(map) {
+                /**
          * Load actual radar animation frames this.timestamps from RainViewer API
          */
-        var t = this;
+		var t = this;
         this.apiRequest = new XMLHttpRequest();
         this.apiRequest.open("GET", "https://tilecache.rainviewer.com/api/maps.json", true);
         this.apiRequest.onload = function (e) {
@@ -104,7 +105,7 @@ L.Control.Rainviewer = L.Control.extend({
         this.opacitySlider.id = "rainviewer-opacityslider";
         this.opacitySlider.min = 0;
         this.opacitySlider.max = 100;
-        this.opacitySlider.value = this.options.opacity * 100;
+        this.opacitySlider.value = this.options.opacity*100;
         L.DomEvent.on(this.opacitySlider, 'input', t.setOpacity, this);
         L.DomEvent.disableClickPropagation(this.opacitySlider);
 
@@ -121,7 +122,7 @@ L.Control.Rainviewer = L.Control.extend({
         /*return container;*/
     },
 
-    unload: function (e) {
+    unload: function(e) {
         L.DomUtil.remove(this.controlContainer);
         L.DomUtil.remove(this.closeButton);
         L.DomUtil.removeClass(this.container, 'leaflet-control-rainviewer-active');
@@ -132,16 +133,16 @@ L.Control.Rainviewer = L.Control.extend({
             if (map.hasLayer(radarLayers[key])) {
                 map.removeLayer(radarLayers[key]);
             }
-        });
+         });
     },
-
-    addLayer: function (ts) {
+    
+    addLayer: function(ts) {
         if (!this.radarLayers[ts]) {
             this.radarLayers[ts] = new L.TileLayer('https://tilecache.rainviewer.com/v2/radar/' + ts + '/256/{z}/{x}/{y}/2/1_1.png', {
                 tileSize: 256,
                 opacity: 0.001,
-                transparent: true,
-                attribution: '<a href="https://rainviewer.com" target="_blank">rainnviewer.com</a>',
+				transparent: true,
+				attribution: '<a href="https://rainviewer.com" target="_blank">rainnviewer.com</a>',
                 zIndex: ts
             });
         }
@@ -156,7 +157,7 @@ L.Control.Rainviewer = L.Control.extend({
      * @param position
      * @param preloadOnly
      */
-    changeRadarPosition: function (position, preloadOnly) {
+    changeRadarPosition: function(position, preloadOnly) {
         while (position >= this.timestamps.length) {
             position -= this.timestamps.length;
         }
@@ -187,7 +188,7 @@ L.Control.Rainviewer = L.Control.extend({
     /**
      * Check avialability and show particular frame position from the this.timestamps list
      */
-    showFrame: function (nextPosition) {
+    showFrame: function(nextPosition) {
         var preloadingDirection = nextPosition - this.animationPosition > 0 ? 1 : -1;
 
         this.changeRadarPosition(nextPosition);
@@ -201,18 +202,18 @@ L.Control.Rainviewer = L.Control.extend({
      * Stop the animation
      * Check if the animation timeout is set and clear it.
      */
-    setOpacity: function (e) {
-        console.log(e.srcElement.value / 100);
+    setOpacity: function(e){
+        console.log(e.srcElement.value/100);
         if (this.radarLayers[this.currentTimestamp]) {
-            this.radarLayers[this.currentTimestamp].setOpacity(e.srcElement.value / 100);
+            this.radarLayers[this.currentTimestamp].setOpacity(e.srcElement.value/100);
         }
     },
 
-    setPosition: function (e) {
+    setPosition: function(e){
         this.showFrame(e.srcElement.value)
     },
 
-    stop: function () {
+    stop: function() {
         if (this.animationTimer) {
             clearTimeout(this.animationTimer);
             this.animationTimer = false;
@@ -221,22 +222,20 @@ L.Control.Rainviewer = L.Control.extend({
         return false;
     },
 
-    play: function () {
+    play: function() {
         this.showFrame(this.animationPosition + 1);
 
         // Main animation driver. Run this function every 500 ms
-        this.animationTimer = setTimeout(function () {
-            this.play()
-        }.bind(this), this.options.animationInterval);
+        this.animationTimer = setTimeout(function(){ this.play() }.bind(this), this.options.animationInterval);
     },
 
-    playStop: function () {
+    playStop: function() {
         if (!this.stop()) {
-            this.play();
+           this.play();
         }
     },
 
-    prev: function (e) {
+    prev: function(e) {
         L.DomEvent.stopPropagation(e);
         L.DomEvent.preventDefault(e);
         this.stop();
@@ -244,14 +243,14 @@ L.Control.Rainviewer = L.Control.extend({
         return
     },
 
-    startstop: function (e) {
+    startstop: function(e) {
         L.DomEvent.stopPropagation(e);
         L.DomEvent.preventDefault(e);
         this.playStop()
 
     },
 
-    next: function (e) {
+    next: function(e) {
         L.DomEvent.stopPropagation(e);
         L.DomEvent.preventDefault(e);
         this.stop();
