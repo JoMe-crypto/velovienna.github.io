@@ -8,8 +8,8 @@ let map = L.map("map", {
     ]
 });
 
-let abstellGroup = L.featureGroup().addTo(map);
-// let abstellGroup = L.markerClusterGroup().addTo(map);
+// let abstellGroup = L.featureGroup().addTo(map);
+let abstellGroup = L.markerClusterGroup().addTo(map);
 let verleihGroup = L.featureGroup().addTo(map);
 // let brunnenGroup = L.featureGroup().addTo(map);
 let trinkbrunnenGroup = L.featureGroup().addTo(map);
@@ -100,6 +100,13 @@ let abstell = L.geoJson.ajax(abstellUrl, {
         return marker;
     }
 }).addTo(abstellGroup);
+
+abstell.on("data:loaded", function() { //nach Laden des Events abstell...
+    abstellGroup.addLayer(abstell); //...gruppierte Abstellanlagen hinzufügen
+    // console.log("data loaded");
+    // map.fitBounds(abstellGroup.getBounds()); //Kartengrenzen an abstellGroup ausrichten
+})
+
 
 let verleihUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:CITYBIKEOGD&srsName=EPSG:4326&outputFormat=json";
 
