@@ -12,13 +12,13 @@ let map = L.map("map", {
 
 // Layer Auswahl
 
-let themenradweg_1 = L.featureGroup().addTo(map);
-let themenradweg_2 = L.featureGroup().addTo(map);
-let themenradweg_3 = L.featureGroup().addTo(map);
-let themenradweg_4 = L.featureGroup().addTo(map);
-let themenradweg_5 = L.featureGroup().addTo(map);
-let themenradweg_6 = L.featureGroup().addTo(map);
-let radetappe = L.featureGroup().addTo(map);
+let themenradweg_1 = L.featureGroup();
+let themenradweg_2 = L.featureGroup();
+let themenradweg_3 = L.featureGroup();
+let themenradweg_4 = L.featureGroup();
+let themenradweg_5 = L.featureGroup();
+let themenradweg_6 = L.featureGroup();
+let radetappe = L.featureGroup();
 
 L.control.layers({
     "BasemapAT": startLayer,
@@ -85,33 +85,33 @@ let themenradweg5 = L.geoJson.ajax(themenradwege,{
             return true;
         }
     }
-
+    
 }).addTo(themenradweg_5)
 
 let themenradweg6 = L.geoJson.ajax(themenradwege,{
     filter: function (feature) {
         if (feature.properties.BEZEICHNUNG === "Bernstein-Radweg"){
-            return true;
+            return true;     
         }
     }
+    
 
 }).addTo(themenradweg_6)
 
 
-for (let trk = 0; trk < THEMENRADWEGOGD.length; track++) {
-    console.log(trk)
-    
-}
 
+function radwegHinzufuegen(clicked_id){
+    if (clicked_id == "themenradweg_1"){
+        themenradweg_1.addTo(map)
+    }if (clicked_id =="themenradweg_2"){
+        themenradweg_2.addTo(map)
+    }if(clicked_id =="themenradweg_3"){
+        themenradweg_3.addTo(map)
+    }if(clicked_id =="themenradweg_4"){
+        themenradweg_4.addTo(map)
+    }if(clicked_id =="themenradweg_5"){
+        themenradweg_5.addTo(map)
+    }if(clicked_id =="themenradweg_6"){
+        themenradweg_6.addTo(map)}
 
-// let drawRadweg = function () {
-//     let gpx = new L.GPX("THEMENRADWEGOGD.gpx", {
-//         async: true,
-//         polyline_options: {
-//             color: "black",
-//             dashArray: [2, 5]
-//         }
-//     }
-// )}.addTo(radetappe);
-
-// drawRadweg();
+};
