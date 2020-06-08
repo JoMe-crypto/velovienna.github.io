@@ -121,12 +121,11 @@ let verleih = L.geoJson.ajax(verleihUrl, {
             icon: icon
         });
         marker.bindPopup(`<p><b>Standort: </b>${point.properties.STATION}</p>
-        <p><i>max. Anzahl an Leihrädern: </i>${point.properties.ANZAHL}</p>
+        <p>Position (Lat, Lng): ${point.geometry.coordinates[0].toFixed(5)}, ${point.geometry.coordinates[1].toFixed(5)}</p>
         `);
         return marker;
     }
 }).addTo(verleihGroup);
-//ACHTUNG: Auf die Information "max. Anzahl an Leihrädern kann offenbar nicht zugegriffen werden! -> "undefined"
 
 
 let brunnenUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRINKBRUNNENOGD&srsName=EPSG:4326&outputFormat=json";
