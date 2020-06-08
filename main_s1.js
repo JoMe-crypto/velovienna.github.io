@@ -183,62 +183,6 @@ trinkbrunnentränke.on("data:loaded", function() {
 
 let radwegeUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:RADNETZOGD &srsName=EPSG:4326&outputFormat=json";
 
-// L.geoJson.ajax(radwegeUrl, {
-//     style: function(){
-//         return {
-//             color:"red",
-//             weight: 3
-//         };
-//     }
-// }).addTo(map);
-
-
-//Basisrouten (B) und Grundnetz (G) anzeigen lassen >> Pop-up gibt nur "undefined" aus Filter funktioniert nicht, weil alles blau angezeigt wird, selbst wenn man "blue" und "green" tauscht...)
-// L.geoJson.ajax(radwegeUrl, {
-//     style: function(feature){
-//         if (feature.properties.M18_RANG_SUB === "B")
-//         return {
-//             color:"red",
-//             weight: 3
-//         };
-//         else if (feature.properties.M18_RANG_SUB==="G")
-//         return {
-//             color:"orange",
-//             weight: 3
-//         };
-//     },
-//     onEachFeature: function (feature, layer){
-//         let text = "a";
-//         if (feature.properties.M18_RANG_SUB==="B"){
-//             textbasis="Basisroute"
-//         };
-//         if (feature.properties.M18_RANG_SUB==="G"){
-//             textgrund="Grundnetz"
-//         };
-//         layer.bindPopup(`<p>${feature.properties.STRNAM}</p>
-//         <p><b>Rang: </b>${textbasis}</p>`)
-//     }
-// }).addTo(radwegeGroup);
-
-
-// L.geoJson.ajax(radwegeUrl, {
-//     style: function(feature){
-//         if (feature.properties.M18_RANG_SUB === "B")
-//         return {
-//             color:"red",
-//             weight: 3
-//         };
-//     },
-//     onEachFeature: function (feature, layer){
-//         let textbasis = "a";
-//         if (feature.properties.M18_RANG_SUB==="B"){
-//             textbasis="Basisroute"
-//         }
-//         layer.bindPopup(`<p>${feature.properties.STRNAM}</p>
-//         <p><b>Rang: </b>${textbasis}</p>`)
-//     }
-// }).addTo(radwegeGroup);
-
 L.geoJson.ajax(radwegeUrl,{
     filter: function (feature) {
         if (feature.properties.M18_RANG_SUB === "B"){
@@ -286,34 +230,6 @@ L.geoJson.ajax(radwegeUrl,{
     }
 
 }).addTo(radwegeGroup)
-
-
-
-
-// L.geoJson.ajax(radwegeUrl, {
-//     style: function(feature){
-//         if (feature.properties.M18_RANG_SUB === "G")
-//         return {
-//             color:"orange",
-//             weight: 3
-//         };
-//     },
-//     onEachFeature: function (feature, layer){
-//         let textgrund = "a";
-//         if (feature.properties.M18_RANG_SUB==="G"){
-//             textgrund="Grundnetz"
-//         }
-//         layer.bindPopup(`<p>${feature.properties.STRNAM}</p>
-//         <p><b>Rang: </b>${textbasis}</p>
-//         <p><i>Das Grundnetz erstreckt sich zwischen den einzelnen Basisrouten. Es beinhaltet wichtige Verbindungen zwischen den einzelnen Bezirken und Stadtteilen.</i></p>`)
-//     }
-// }).addTo(radwegeGroup);
-
-
-
-
-
-
 
 // Cheat-Sheet – Leaflet-Plugin
 // API-key: 5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5
