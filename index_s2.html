@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,22 +35,94 @@
 
 
 </head>
+
 <body>
     <header>
-        <p> Velovienna - Themenradwege</p>
+        <img src="images/Wien_Panorama.jpg" alt="Wien Panorama">
+        <div id="Header">
+            <p>Radfahren in Wien</p>
+            <p>Themenradwege</p>
+            <p>Wetterinformationen</p>
+        </div>
 
     </header>
     <main>
-        <img src="images/Fragezeichen.jpg" alt="Fragezeichen">
-        <img src="images/Burgtheater.jpg" alt="Burgtheater">
-        <img src="images/Gürtel" alt="Gürtel">
-        <img src="images/Donau.jpg" alt="Doanu">
-        <img src="images/Hofburg.jpg" alt="Hofburg">
-        <img src="images/Fragezeichen.jpg" alt="Fragezeichen">
+        <p>Die Stadt Wien bietet eine breite Auswahl an Themenradwegen. Wählen Sie einen Radweg indem Sie auf
+            das entsprechende Bild klicken oder aktivieren Sie ihn im Kontrollkästchen in der oberen rechten Ecke
+            der Karte weiter unten</p>
+
+
+
+        <div id="Radwegauswahl_1">
+            <figure id="themenradweg_1" onclick="radwegHinzufuegen(this.id)">
+                <a href="#map">
+                    <img src="images/Fragezeichen.jpg" alt="Fragezeichen">
+                </a>
+                <figcaption>Der Wiental-Radweg</figcaption>
+                <p>Start:</p>
+                <p>Ziel:</p>
+                <p>Stationen:</p>
+                <p>Weiterführender Link</p>
+            </figure>
+            <figure id="themenradweg_2" onclick="radwegHinzufuegen(this.id)">
+                <a href="#map">
+                    <img src="images/Burgtheater.jpg" alt="Burgtheater am Ring">
+                </a>
+                <figcaption>Der Ring-Rund-Radweg</figcaption>
+                <p>Start:</p>
+                <p>Ziel:</p>
+                <p>Stationen:</p>
+                <p>Weiterführender Link</p>
+            </figure>
+            <figure id="themenradweg_3" onclick="radwegHinzufuegen(this.id)">
+                <a href="#map">
+                    <img src="images/Guertel.jpg" alt="Guertel">
+                </a>
+                <figcaption>Der Gürtel-Radweg</figcaption>
+                <p>Start:</p>
+                <p>Ziel:</p>
+                <p>Stationen:</p>
+                <p>Weiterführender Link</p>
+            </figure>
+        </div>
+
+        <div id="Radwegauswahl_2">
+            <figure id="themenradweg_4" onclick="radwegHinzufuegen(this.id)">
+                <a href="#map">
+                    <img src="images/Donau.jpg" alt="Donau">
+                </a>
+                <figcaption>Der Donau-Radweg</figcaption>
+                <p>Start:</p>
+                <p>Ziel:</p>
+                <p>Stationen:</p>
+                <p>Weiterführender Link</p>
+            </figure>
+            <figure id="themenradweg_5" onclick="radwegHinzufuegen(this.id)">
+                <a href="#map">
+                    <img src="images/Hofburg.jpg" alt="Hofburg">
+                </a>
+                <figcaption>Der City-Radweg</figcaption>
+                <p>Start:</p>
+                <p>Ziel:</p>
+                <p>Stationen:</p>
+                <p>Weiterführender Link</p>
+            </figure>
+            <figure id="themenradweg_6" onclick="radwegHinzufuegen(this.id)">
+                <a href="#map">
+                    <img src="images/Fragezeichen.jpg" alt="Fragezeichen">
+                </a>
+                <figcaption>Der Bernstein-Radweg</figcaption>
+                <p>Start:</p>
+                <p>Ziel:</p>
+                <p>Stationen:</p>
+                <p>Weiterführender Link</p>
+            </figure>
+        </div>
 
         <div id="map"></div>
-        <div id="profile"></div>
-        <p>Test</p>
+
+
     </main>
 </body>
+
 </html>
