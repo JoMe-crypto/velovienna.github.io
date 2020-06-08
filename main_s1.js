@@ -43,54 +43,67 @@ L.control.reachability({
     // add settings/options here
     apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5',
 
-    drawButtonContent:"",
-    drawButtonStyleClass: "fa-pencil-alt",
-    drawButtonTooltip: "Ausganspunkt setzen",
-
-    deleteButtonContent:"",
-    deleteButtonStyleClass: "",
-    deleteButtonTooltip: "Reichweite löschen",
-
-    distanceButtonContent:"",
-    distanceButtonStyleClass: "",
-    distanceButtonTooltip: "Reichweite nach Distanz",
-
-    timeButtonContent:"",
-    timeButtonStyleClass: "",
-    timeButtonTooltip: "Reichweite nach Zeit",
-
-    travelModeButton1Content: "",
-    travelModeButton1StyleClass: "",
-    travelModeButton1Tooltip: "Fortbewegungsart: Auto",
-
-    travelModeButton2Content: "",
-    travelModeButton2StyleClass: "",
-    travelModeButton2Tooltip: "Fortbewegungsart: Rad",
-
-    travelModeButton3Content: "",
-    travelModeButton3StyleClass: "",
-    travelModeButton3Tooltip: "Fortbewegungsart: zu Fuß",
-
-    travelModeButton4Content: "",
-    travelModeButton4StyleClass: "",
-    travelModeButton4Tooltip: "Fortbewegungsart: e-bike",
-    travelModeProfile4: "cycling-electric",
-
     rangeControlDistanceTitle: "Distanz",
     rangeControlDistanceMax: 10,
     rangeControlDistanceInterval: 1,
     rangeControlTimeTitle: "Zeit",
     rangeControlTimeMax: 60,
     rangeControlTimeInterval: 10
+
 }).addTo(map);
+
+// L.control.reachability({
+//     // add settings/options here
+//     apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5',
+
+//     drawButtonContent:"",
+//     drawButtonStyleClass: "fas fa-pencil-alt",
+//     drawButtonTooltip: "Ausganspunkt setzen",
+
+//     deleteButtonContent:"",
+//     deleteButtonStyleClass: "  fas fa-trash-alt  ",
+//     deleteButtonTooltip: "Reichweite löschen",
+
+//     distanceButtonContent:"",
+//     distanceButtonStyleClass: "  fas fa-road  ",
+//     distanceButtonTooltip: "Reichweite nach Distanz",
+
+//     timeButtonContent:"",
+//     timeButtonStyleClass: "far fa-clock",
+//     timeButtonTooltip: "Reichweite nach Zeit",
+
+//     travelModeButton1Content: "",
+//     travelModeButton1StyleClass: "fas fa-car",
+//     travelModeButton1Tooltip: "Fortbewegungsart: Auto",
+
+//     travelModeButton2Content: "",
+//     travelModeButton2StyleClass: "fas fa-bicycle",
+//     travelModeButton2Tooltip: "Fortbewegungsart: Rad",
+
+//     travelModeButton3Content: "",
+//     travelModeButton3StyleClass: "fas fa-walking",
+//     travelModeButton3Tooltip: "Fortbewegungsart: zu Fuß",
+
+//     travelModeButton4Content: "",
+//     travelModeButton4StyleClass: "fas fa-charging-station",
+//     travelModeButton4Tooltip: "Fortbewegungsart: e-bike",
+//     travelModeProfile4: "cycling-electric",
+
+//     rangeControlDistanceTitle: "Distanz",
+//     rangeControlDistanceMax: 10,
+//     rangeControlDistanceInterval: 1,
+//     rangeControlTimeTitle: "Zeit",
+//     rangeControlTimeMax: 60,
+//     rangeControlTimeInterval: 10
+// }).addTo(map);
 
 let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
 
 let abstell = L.geoJson.ajax(abstellUrl, {
-    pointToLayer: function (point, latlng){
+    pointToLayer: function (point, latlng) {
         let icon = L.icon({
             iconUrl: `icons/parking_bicycle.png`,
-            iconSize: [32,32]
+            iconSize: [32, 32]
         });
         let marker = L.marker(latlng, {
             icon: icon
@@ -102,7 +115,7 @@ let abstell = L.geoJson.ajax(abstellUrl, {
     }
 }).addTo(abstellGroup);
 
-abstell.on("data:loaded", function() { //nach Laden des Events abstell...
+abstell.on("data:loaded", function () { //nach Laden des Events abstell...
     abstellGroup.addLayer(abstell); //...gruppierte Abstellanlagen hinzufügen
     // console.log("data loaded");
     // map.fitBounds(abstellGroup.getBounds()); //Kartengrenzen an abstellGroup ausrichten
@@ -112,21 +125,20 @@ abstell.on("data:loaded", function() { //nach Laden des Events abstell...
 let verleihUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:CITYBIKEOGD&srsName=EPSG:4326&outputFormat=json";
 
 let verleih = L.geoJson.ajax(verleihUrl, {
-    pointToLayer: function (point, latlng){
+    pointToLayer: function (point, latlng) {
         let icon = L.icon({
             iconUrl: `icons/citybike.png`,
-            iconSize: [32,32]
+            iconSize: [32, 32]
         });
         let marker = L.marker(latlng, {
             icon: icon
         });
         marker.bindPopup(`<p><b>Standort: </b>${point.properties.STATION}</p>
-        <p><i>max. Anzahl an Leihrädern: </i>${point.properties.ANZAHL}</p>
+        <p>Position (Lat, Lng): ${point.geometry.coordinates[0].toFixed(5)}, ${point.geometry.coordinates[1].toFixed(5)}</p>
         `);
         return marker;
     }
 }).addTo(verleihGroup);
-//ACHTUNG: Auf die Information "max. Anzahl an Leihrädern kann offenbar nicht zugegriffen werden! -> "undefined"
 
 
 let brunnenUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRINKBRUNNENOGD&srsName=EPSG:4326&outputFormat=json";
@@ -150,10 +162,9 @@ let trinkbrunnen = L.geoJson.ajax(brunnenUrl, {
     }
 }).addTo(trinkbrunnenGroup);
 
-trinkbrunnen.on("data:loaded", function() { //nach Laden des Events abstell...
-    trinkbrunnenGroup.addLayer(trinkbrunnen); //...gruppierte Abstellanlagen hinzufügen
+trinkbrunnen.on("data:loaded", function () {
+    trinkbrunnenGroup.addLayer(trinkbrunnen);
     // console.log("data loaded");
-    // map.fitBounds(abstellGroup.getBounds()); //Kartengrenzen an abstellGroup ausrichten
 })
 
 // Nur "NAME": "Trinkbrunnen" anzeigen lassen
@@ -175,59 +186,77 @@ let trinkbrunnentränke = L.geoJson.ajax(brunnenUrl, {
     }
 }).addTo(trinkbrunnenGroup);
 
-trinkbrunnentränke.on("data:loaded", function() { //nach Laden des Events abstell...
-    trinkbrunnenGroup.addLayer(trinkbrunnentränke); //...gruppierte Abstellanlagen hinzufügen
+trinkbrunnentränke.on("data:loaded", function () {
+    trinkbrunnenGroup.addLayer(trinkbrunnentränke);
     // console.log("data loaded");
-    // map.fitBounds(abstellGroup.getBounds()); //Kartengrenzen an abstellGroup ausrichten
 })
 
 
 
-let radwegeUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:RADWEGEOGD&srsName=EPSG:4326&outputFormat=json";
+let radwegeUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:RADNETZOGD &srsName=EPSG:4326&outputFormat=json";
 
-// L.geoJson.ajax(radwegeUrl, {
-//     style: function(){
-//         return {
-//             color:"red",
-//             weight: 3
-//         };
-//     }
-// }).addTo(map);
-
-
-//Basisrouten (B) und Grundnetz (G) anzeigen lassen >> Pop-up gibt nur "undefined" aus Filter funktioniert nicht, weil alles blau angezeigt wird, selbst wenn man "blue" und "green" tauscht...)
 L.geoJson.ajax(radwegeUrl, {
-    style: function(feature){
-        if (feature.properties.M18_RANG_SUB === "G")
+    filter: function (feature) {
+        if (feature.properties.M18_RANG_SUB === "B") {
+            return true;
+        }
+    },
+    style: function (feature) {
         return {
-            color:"red",
-            weight: 3
-        };
-        else if (feature.properties.M18_RANG_SUB==="B")
-        return {
-            color:"green",
+            color: "red",
             weight: 3
         };
     },
-    onEachFeature: function (feature, layer){
-        layer.bindPopup(`${feature.properties.STRNAM}`)
+    onEachFeature: function (feature, layer) {
+        let textbasis = "a";
+        if (feature.properties.M18_RANG_SUB === "B") {
+            textbasis = "Basisroute"
+        }
+        layer.bindPopup(`<p>${feature.properties.STRNAM}</p>
+        <p><b>Rang: </b>${textbasis}</p>
+        <p>Basisrouten sind die wichtigsten Verbindungen im Wiener Radwegenetz. Sie sind gut ausgebaut und bieten dadurch eine hohe Fahrqualität.</p>`)
     }
-}).addTo(radwegeGroup);
+
+}).addTo(radwegeGroup)
+
+L.geoJson.ajax(radwegeUrl, {
+    filter: function (feature) {
+        if (feature.properties.M18_RANG_SUB === "G") {
+            return true;
+        }
+    },
+    style: function (feature) {
+        return {
+            color: "orange",
+            weight: 3
+        };
+    },
+    onEachFeature: function (feature, layer) {
+        let textgrund = "a";
+        if (feature.properties.M18_RANG_SUB === "G") {
+            textgrund = "Grundnetz"
+        }
+        layer.bindPopup(`<p>${feature.properties.STRNAM}</p>
+        <p><b>Rang: </b>${textgrund}</p>
+        <p>Radwege des Grundnetz-Bestands erstrecken sich zwischen den Basisrouten und verbinden einzelne Bezirke und Stadtteile miteinander.</p>`)
+    }
+
+}).addTo(radwegeGroup)
 
 // Cheat-Sheet – Leaflet-Plugin
 // API-key: 5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5
 // <script>
-        //     // Create the Leaflet map object
-        //     var map = L.map('map', { center: [53.4189, -2.33] });
-    
-        //     // Create a Leaflet tile layer object
-        //     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        //         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        //     }).addTo(map);
-    
-        //     // Initialise the reachability plugin
-        //     L.control.reachability({
-        //         // add settings/options here
-        //         apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5'
-        //     }).addTo(map);
-        // </script>
+//     // Create the Leaflet map object
+//     var map = L.map('map', { center: [53.4189, -2.33] });
+
+//     // Create a Leaflet tile layer object
+//     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+//     }).addTo(map);
+
+//     // Initialise the reachability plugin
+//     L.control.reachability({
+//         // add settings/options here
+//         apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5'
+//     }).addTo(map);
+// </script>
