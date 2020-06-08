@@ -43,54 +43,67 @@ L.control.reachability({
     // add settings/options here
     apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5',
 
-    drawButtonContent:"",
-    drawButtonStyleClass: "fas fa-pencil-alt",
-    drawButtonTooltip: "Ausganspunkt setzen",
-
-    deleteButtonContent:"",
-    deleteButtonStyleClass: "  fas fa-trash-alt  ",
-    deleteButtonTooltip: "Reichweite löschen",
-
-    distanceButtonContent:"",
-    distanceButtonStyleClass: "  fas fa-road  ",
-    distanceButtonTooltip: "Reichweite nach Distanz",
-
-    timeButtonContent:"",
-    timeButtonStyleClass: "far fa-clock",
-    timeButtonTooltip: "Reichweite nach Zeit",
-
-    travelModeButton1Content: "",
-    travelModeButton1StyleClass: "fas fa-car",
-    travelModeButton1Tooltip: "Fortbewegungsart: Auto",
-
-    travelModeButton2Content: "",
-    travelModeButton2StyleClass: "fas fa-bicycle",
-    travelModeButton2Tooltip: "Fortbewegungsart: Rad",
-
-    travelModeButton3Content: "",
-    travelModeButton3StyleClass: "fas fa-walking",
-    travelModeButton3Tooltip: "Fortbewegungsart: zu Fuß",
-
-    travelModeButton4Content: "",
-    travelModeButton4StyleClass: "fas fa-charging-station",
-    travelModeButton4Tooltip: "Fortbewegungsart: e-bike",
-    travelModeProfile4: "cycling-electric",
-
     rangeControlDistanceTitle: "Distanz",
     rangeControlDistanceMax: 10,
     rangeControlDistanceInterval: 1,
     rangeControlTimeTitle: "Zeit",
     rangeControlTimeMax: 60,
     rangeControlTimeInterval: 10
+
 }).addTo(map);
+
+// L.control.reachability({
+//     // add settings/options here
+//     apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5',
+
+//     drawButtonContent:"",
+//     drawButtonStyleClass: "fas fa-pencil-alt",
+//     drawButtonTooltip: "Ausganspunkt setzen",
+
+//     deleteButtonContent:"",
+//     deleteButtonStyleClass: "  fas fa-trash-alt  ",
+//     deleteButtonTooltip: "Reichweite löschen",
+
+//     distanceButtonContent:"",
+//     distanceButtonStyleClass: "  fas fa-road  ",
+//     distanceButtonTooltip: "Reichweite nach Distanz",
+
+//     timeButtonContent:"",
+//     timeButtonStyleClass: "far fa-clock",
+//     timeButtonTooltip: "Reichweite nach Zeit",
+
+//     travelModeButton1Content: "",
+//     travelModeButton1StyleClass: "fas fa-car",
+//     travelModeButton1Tooltip: "Fortbewegungsart: Auto",
+
+//     travelModeButton2Content: "",
+//     travelModeButton2StyleClass: "fas fa-bicycle",
+//     travelModeButton2Tooltip: "Fortbewegungsart: Rad",
+
+//     travelModeButton3Content: "",
+//     travelModeButton3StyleClass: "fas fa-walking",
+//     travelModeButton3Tooltip: "Fortbewegungsart: zu Fuß",
+
+//     travelModeButton4Content: "",
+//     travelModeButton4StyleClass: "fas fa-charging-station",
+//     travelModeButton4Tooltip: "Fortbewegungsart: e-bike",
+//     travelModeProfile4: "cycling-electric",
+
+//     rangeControlDistanceTitle: "Distanz",
+//     rangeControlDistanceMax: 10,
+//     rangeControlDistanceInterval: 1,
+//     rangeControlTimeTitle: "Zeit",
+//     rangeControlTimeMax: 60,
+//     rangeControlTimeInterval: 10
+// }).addTo(map);
 
 let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
 
 let abstell = L.geoJson.ajax(abstellUrl, {
-    pointToLayer: function (point, latlng){
+    pointToLayer: function (point, latlng) {
         let icon = L.icon({
             iconUrl: `icons/parking_bicycle.png`,
-            iconSize: [32,32]
+            iconSize: [32, 32]
         });
         let marker = L.marker(latlng, {
             icon: icon
@@ -102,7 +115,7 @@ let abstell = L.geoJson.ajax(abstellUrl, {
     }
 }).addTo(abstellGroup);
 
-abstell.on("data:loaded", function() { //nach Laden des Events abstell...
+abstell.on("data:loaded", function () { //nach Laden des Events abstell...
     abstellGroup.addLayer(abstell); //...gruppierte Abstellanlagen hinzufügen
     // console.log("data loaded");
     // map.fitBounds(abstellGroup.getBounds()); //Kartengrenzen an abstellGroup ausrichten
@@ -112,10 +125,10 @@ abstell.on("data:loaded", function() { //nach Laden des Events abstell...
 let verleihUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:CITYBIKEOGD&srsName=EPSG:4326&outputFormat=json";
 
 let verleih = L.geoJson.ajax(verleihUrl, {
-    pointToLayer: function (point, latlng){
+    pointToLayer: function (point, latlng) {
         let icon = L.icon({
             iconUrl: `icons/citybike.png`,
-            iconSize: [32,32]
+            iconSize: [32, 32]
         });
         let marker = L.marker(latlng, {
             icon: icon
@@ -149,7 +162,7 @@ let trinkbrunnen = L.geoJson.ajax(brunnenUrl, {
     }
 }).addTo(trinkbrunnenGroup);
 
-trinkbrunnen.on("data:loaded", function() {
+trinkbrunnen.on("data:loaded", function () {
     trinkbrunnenGroup.addLayer(trinkbrunnen);
     // console.log("data loaded");
 })
@@ -173,7 +186,7 @@ let trinkbrunnentränke = L.geoJson.ajax(brunnenUrl, {
     }
 }).addTo(trinkbrunnenGroup);
 
-trinkbrunnentränke.on("data:loaded", function() {
+trinkbrunnentränke.on("data:loaded", function () {
     trinkbrunnenGroup.addLayer(trinkbrunnentränke);
     // console.log("data loaded");
 })
@@ -182,22 +195,22 @@ trinkbrunnentränke.on("data:loaded", function() {
 
 let radwegeUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:RADNETZOGD &srsName=EPSG:4326&outputFormat=json";
 
-L.geoJson.ajax(radwegeUrl,{
+L.geoJson.ajax(radwegeUrl, {
     filter: function (feature) {
-        if (feature.properties.M18_RANG_SUB === "B"){
+        if (feature.properties.M18_RANG_SUB === "B") {
             return true;
         }
     },
     style: function (feature) {
         return {
-            color:"red",
+            color: "red",
             weight: 3
-        }; 
+        };
     },
-    onEachFeature: function (feature, layer){
+    onEachFeature: function (feature, layer) {
         let textbasis = "a";
-        if (feature.properties.M18_RANG_SUB==="B"){
-            textbasis="Basisroute"
+        if (feature.properties.M18_RANG_SUB === "B") {
+            textbasis = "Basisroute"
         }
         layer.bindPopup(`<p>${feature.properties.STRNAM}</p>
         <p><b>Rang: </b>${textbasis}</p>
@@ -206,22 +219,22 @@ L.geoJson.ajax(radwegeUrl,{
 
 }).addTo(radwegeGroup)
 
-L.geoJson.ajax(radwegeUrl,{
+L.geoJson.ajax(radwegeUrl, {
     filter: function (feature) {
-        if (feature.properties.M18_RANG_SUB === "G"){
+        if (feature.properties.M18_RANG_SUB === "G") {
             return true;
         }
     },
     style: function (feature) {
         return {
-            color:"orange",
+            color: "orange",
             weight: 3
-        }; 
+        };
     },
-    onEachFeature: function (feature, layer){
+    onEachFeature: function (feature, layer) {
         let textgrund = "a";
-        if (feature.properties.M18_RANG_SUB==="G"){
-            textgrund="Grundnetz"
+        if (feature.properties.M18_RANG_SUB === "G") {
+            textgrund = "Grundnetz"
         }
         layer.bindPopup(`<p>${feature.properties.STRNAM}</p>
         <p><b>Rang: </b>${textgrund}</p>
@@ -233,17 +246,17 @@ L.geoJson.ajax(radwegeUrl,{
 // Cheat-Sheet – Leaflet-Plugin
 // API-key: 5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5
 // <script>
-        //     // Create the Leaflet map object
-        //     var map = L.map('map', { center: [53.4189, -2.33] });
-    
-        //     // Create a Leaflet tile layer object
-        //     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        //         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        //     }).addTo(map);
-    
-        //     // Initialise the reachability plugin
-        //     L.control.reachability({
-        //         // add settings/options here
-        //         apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5'
-        //     }).addTo(map);
-        // </script>
+//     // Create the Leaflet map object
+//     var map = L.map('map', { center: [53.4189, -2.33] });
+
+//     // Create a Leaflet tile layer object
+//     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+//     }).addTo(map);
+
+//     // Initialise the reachability plugin
+//     L.control.reachability({
+//         // add settings/options here
+//         apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5'
+//     }).addTo(map);
+// </script>
