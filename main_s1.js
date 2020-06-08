@@ -44,35 +44,35 @@ L.control.reachability({
     apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5',
 
     drawButtonContent:"",
-    drawButtonStyleClass: "fa-pencil-alt",
+    drawButtonStyleClass: "fas fa-pencil-alt",
     drawButtonTooltip: "Ausganspunkt setzen",
 
     deleteButtonContent:"",
-    deleteButtonStyleClass: "",
+    deleteButtonStyleClass: "  fas fa-trash-alt  ",
     deleteButtonTooltip: "Reichweite löschen",
 
     distanceButtonContent:"",
-    distanceButtonStyleClass: "",
+    distanceButtonStyleClass: "  fas fa-road  ",
     distanceButtonTooltip: "Reichweite nach Distanz",
 
     timeButtonContent:"",
-    timeButtonStyleClass: "",
+    timeButtonStyleClass: "far fa-clock",
     timeButtonTooltip: "Reichweite nach Zeit",
 
     travelModeButton1Content: "",
-    travelModeButton1StyleClass: "",
+    travelModeButton1StyleClass: "fas fa-car",
     travelModeButton1Tooltip: "Fortbewegungsart: Auto",
 
     travelModeButton2Content: "",
-    travelModeButton2StyleClass: "",
+    travelModeButton2StyleClass: "fas fa-bicycle",
     travelModeButton2Tooltip: "Fortbewegungsart: Rad",
 
     travelModeButton3Content: "",
-    travelModeButton3StyleClass: "",
+    travelModeButton3StyleClass: "fas fa-walking",
     travelModeButton3Tooltip: "Fortbewegungsart: zu Fuß",
 
     travelModeButton4Content: "",
-    travelModeButton4StyleClass: "",
+    travelModeButton4StyleClass: "fas fa-charging-station",
     travelModeButton4Tooltip: "Fortbewegungsart: e-bike",
     travelModeProfile4: "cycling-electric",
 
@@ -211,6 +211,7 @@ L.geoJson.ajax(radwegeUrl, {
         layer.bindPopup(`${feature.properties.STRNAM}`)
     }
 }).addTo(radwegeGroup);
+
 
 // Cheat-Sheet – Leaflet-Plugin
 // API-key: 5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5
