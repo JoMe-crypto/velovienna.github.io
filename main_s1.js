@@ -150,10 +150,9 @@ let trinkbrunnen = L.geoJson.ajax(brunnenUrl, {
     }
 }).addTo(trinkbrunnenGroup);
 
-trinkbrunnen.on("data:loaded", function() { //nach Laden des Events abstell...
-    trinkbrunnenGroup.addLayer(trinkbrunnen); //...gruppierte Abstellanlagen hinzufügen
+trinkbrunnen.on("data:loaded", function() {
+    trinkbrunnenGroup.addLayer(trinkbrunnen);
     // console.log("data loaded");
-    // map.fitBounds(abstellGroup.getBounds()); //Kartengrenzen an abstellGroup ausrichten
 })
 
 // Nur "NAME": "Trinkbrunnen" anzeigen lassen
@@ -175,10 +174,9 @@ let trinkbrunnentränke = L.geoJson.ajax(brunnenUrl, {
     }
 }).addTo(trinkbrunnenGroup);
 
-trinkbrunnentränke.on("data:loaded", function() { //nach Laden des Events abstell...
-    trinkbrunnenGroup.addLayer(trinkbrunnentränke); //...gruppierte Abstellanlagen hinzufügen
+trinkbrunnentränke.on("data:loaded", function() {
+    trinkbrunnenGroup.addLayer(trinkbrunnentränke);
     // console.log("data loaded");
-    // map.fitBounds(abstellGroup.getBounds()); //Kartengrenzen an abstellGroup ausrichten
 })
 
 
