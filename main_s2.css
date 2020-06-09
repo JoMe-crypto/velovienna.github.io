@@ -1,11 +1,57 @@
+body {
+    scroll-behavior: smooth;
+}
+/* style header */
+
+header {
+    display: table;
+    width: 100%;
+}
+
+header .tr {
+    display: table-row;
+}
+header img {
+    display: table-cell;
+    text-align: center;
+}
+header p {
+    display: table-cell;
+    background-color: lightgrey;
+    padding: 5px;
+}
+
+/* style main */
+
+
+
+#Radwegauswahl_1,  #Radwegauswahl_2 {
+    display: table;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+#Radwegauswahl_1 figure, #Radwegauswahl_2 figure {
+    display: table-cell;
+    padding: 10px;
+    text-align: center;   
+}
+
+#Radwegauswahl_1 figure img, #Radwegauswahl_2 figure img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+#Radwegauswahl_1 figure figcaption,  #Radwegauswahl_2 figure figcaption{
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+}
 
 #map {
     width: 100%;
-    height: 360px;
+    height: 500px;
     border: 1px solid gray;
     background-color: grey;
-}
-
-.adler-theme.elevation-polyline {
-    stroke-opacity: 0.0;
 }
