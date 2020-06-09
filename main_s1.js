@@ -9,12 +9,12 @@ let map = L.map("map", {
 });
 
 // let abstellGroup = L.featureGroup().addTo(map);
-let abstellGroup = L.markerClusterGroup().addTo(map);
-let verleihGroup = L.featureGroup().addTo(map);
+let abstellGroup = L.markerClusterGroup();
+let verleihGroup = L.featureGroup();
 // let brunnenGroup = L.featureGroup().addTo(map);
 // let trinkbrunnenGroup = L.featureGroup().addTo(map);
-let trinkbrunnenGroup = L.markerClusterGroup().addTo(map);
-let radwegeGroup = L.featureGroup().addTo(map);
+let trinkbrunnenGroup = L.markerClusterGroup();
+let radwegeGroup = L.featureGroup();
 
 // var mymap = L.map(map).setView([48.208354, 16.372504], 13)
 
@@ -48,15 +48,16 @@ L.control.reachability({
     rangeControlDistanceInterval: 1,
     rangeControlTimeTitle: "Zeit",
     rangeControlTimeMax: 60,
-    rangeControlTimeInterval: 10
+    rangeControlTimeInterval: 10,
+
+    drawButtonContent:"",
+    drawButtonStyleClass: "fas fa-pencil-alt"
 
 }).addTo(map);
 
 // L.control.reachability({
 //     // add settings/options here
-//     apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5',
-
-//     drawButtonContent:"",
+// drawButtonContent:"",
 //     drawButtonStyleClass: "fas fa-pencil-alt",
 //     drawButtonTooltip: "Ausganspunkt setzen",
 
@@ -94,7 +95,10 @@ L.control.reachability({
 //     rangeControlDistanceInterval: 1,
 //     rangeControlTimeTitle: "Zeit",
 //     rangeControlTimeMax: 60,
-//     rangeControlTimeInterval: 10
+//     rangeControlTimeInterval: 10,
+
+
+//     apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5'
 // }).addTo(map);
 
 let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
