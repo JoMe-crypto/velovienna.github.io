@@ -15,6 +15,7 @@ let verleihGroup = L.featureGroup();
 // let trinkbrunnenGroup = L.featureGroup().addTo(map);
 let trinkbrunnenGroup = L.markerClusterGroup();
 let radwegeGroup = L.featureGroup();
+let radwegenebenGroup = L.featureGroup();
 
 // var mymap = L.map(map).setView([48.208354, 16.372504], 13)
 
@@ -35,7 +36,8 @@ L.control.layers({
     "Abstellanlagen": abstellGroup,
     "Citybike-Stationen": verleihGroup,
     "Trinkbrunnen": trinkbrunnenGroup,
-    "Radwege": radwegeGroup
+    "Radwege - Haupt": radwegeGroup,
+    "Radwege - Neben": radwegenebenGroup
 
 }).addTo(map);
 
@@ -246,6 +248,54 @@ L.geoJson.ajax(radwegeUrl, {
     }
 
 }).addTo(radwegeGroup)
+
+L.geoJson.ajax(radwegeUrl, {
+    filter: function (feature) {
+        if (feature.properties.M18_RANG_SUB === "N") {
+            return true;
+        }
+    },
+    style: function (feature) {
+        return {
+            color: "yellow",
+            weight: 2
+        };
+    },
+    onEachFeature: function (feature, layer) {
+        let textneben = "a";
+        if (feature.properties.M18_RANG_SUB === "N") {
+            textneben = "Sonstige Radroute"
+        }
+        layer.bindPopup(`<p>${feature.properties.STRNAM}</p>
+        <p><b>Rang: </b>${textneben}</p>`)
+    }
+
+}).addTo(radwegenebenGroup)
+
+L.geoJson.ajax(radwegeUrl, {
+    filter: function (feature) {
+        if (feature.properties.M18_RANG_SUB === "E") {
+            return true;
+        }
+    },
+    style: function (feature) {
+        return {
+            color: "yellow",
+            weight: 2
+        };
+    },
+    onEachFeature: function (feature, layer) {
+        let texterweitert = "a";
+        if (feature.properties.M18_RANG_SUB === "E") {
+            texterweitert = "Sonstige Radroute"
+        }
+        layer.bindPopup(`<p>${feature.properties.STRNAM}</p>
+        <p><b>Rang: </b>${texterweitert}</p>`)
+    }
+
+}).addTo(radwegenebenGroup)
+
+
 
 // Cheat-Sheet – Leaflet-Plugin
 // API-key: 5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5
