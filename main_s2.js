@@ -49,6 +49,7 @@ let themenradweg1 = L.geoJson.ajax(themenradwege,{
     filter: function (feature) {
         if (feature.properties.BEZEICHNUNG === "Wiental-Radweg"){
             return true;
+               
         }
     },
     style: function (feature) {
@@ -56,8 +57,9 @@ let themenradweg1 = L.geoJson.ajax(themenradwege,{
             color: "red"
         } 
     }
-
+    
 }).addTo(themenradweg_1)
+
 
 let themenradweg2 = L.geoJson.ajax(themenradwege,{
     filter: function (feature) {
@@ -135,51 +137,32 @@ let themenradweg6 = L.geoJson.ajax(themenradwege,{
 function radwegHinzufuegen(clicked_id){
     if (clicked_id == "themenradweg_1"){
         themenradweg_1.addTo(map);
-        //get start und stopppunkt
+        map.fitBounds(themenradweg_1.getBounds());
 
-        // get direction of trail
-
-        //create box for map fit bounds
         
     }if (clicked_id =="themenradweg_2"){
         themenradweg_2.addTo(map);
-        //get start und stopppunkt
+        map.fitBounds(themenradweg_2.getBounds());
 
-        // get direction of trail
-
-        //create box for map fit bounds
 
     }if(clicked_id =="themenradweg_3"){
         themenradweg_3.addTo(map);
-        //get start und stopppunkt
-        
-        // get direction of trail
+        map.fitBounds(themenradweg_3.getBounds());
 
-        //create box for map fit bounds
 
     }if(clicked_id =="themenradweg_4"){
         themenradweg_4.addTo(map);
-        //get start und stopppunkt
-
-        //get direction of trail
-
-        //create box for map fit bounds
+        map.fitBounds(themenradweg_4.getBounds());
+        
 
     }if(clicked_id =="themenradweg_5"){
         themenradweg_5.addTo(map);
-        //get start und stopppunkt
-
-        //get direction of trail
-
-        //create box for map fit bounds
+        map.fitBounds(themenradweg_5.getBounds());
 
     }if(clicked_id =="themenradweg_6"){
         themenradweg_6.addTo(map);
-        //get start und stopppunkt
-        
-        //get direction of trail
+        map.fitBounds(themenradweg_6.getBounds());
 
-        //create box for map fit bounds
     }
 
 };
@@ -248,7 +231,7 @@ map.on("zoomend moveend", function (evt) {
                 ${img}
                 <p>${article.summary}</p>
                 <a target="wikipedia" href="https://${article.wikipediaUrl}">Wikipedia Artikel</a>`)
-            //console.log(article);
+            
         }
     });
 });wikipedia.addTo(map);
