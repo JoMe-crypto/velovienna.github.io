@@ -45,5 +45,10 @@ h1 {
     border: 1px solid gray;
  }
 
+ .reachability-control-settings-button
+            {
+                font-size: 22px;
+            }
+
  /* font-family: 'Roboto', sans-serif; */
  /* line-height = Zeilenabstand */
