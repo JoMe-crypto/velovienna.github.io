@@ -1,4 +1,4 @@
-//Variablen
+
 
 let startLayer = L.tileLayer.provider("BasemapAT.grau");
 
@@ -23,11 +23,7 @@ let wikipedia = L.featureGroup();
 
 L.control.layers({
     "BasemapAT": startLayer,
-    "CycleOSM": L.tileLayer.provider("CyclOSM"),
-    // "BasemapAT.terrain": L.tileLayer.provider("BasemapAT.terrain"),
-    // "BasemapAT.surface": L.tileLayer.provider("BasemapAT.surface"),
     "BasemapAT.orthofoto": L.tileLayer.provider("BasemapAT.orthofoto"),
-    "Stamen.Terrain": L.tileLayer.provider("Stamen.Terrain"),
     "OpenTopoMap": L.tileLayer.provider("OpenTopoMap")
 }, {
     "Wiental-Radweg": themenradweg_1,
@@ -45,6 +41,20 @@ L.control.layers({
 
 let themenradwege = " https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:THEMENRADWEGOGD&srsName=EPSG:4326&outputFormat=json"
 
+let starticon = L.icon ({
+    iconSize: [32, 37],
+    iconAnchor: [16, 37],
+    iconUrl: `icons/${feature.properties.BEZEICHNUNG}_start`
+})
+
+let stoppicon = L.icon({
+    iconSize: [32, 37],
+    iconAnchor: [16, 37],
+    iconUrl: `icons/${feature.properties.BEZEICHNUNG}_stopp`
+
+
+})
+
 let themenradweg1 = L.geoJson.ajax(themenradwege,{
     filter: function (feature) {
         if (feature.properties.BEZEICHNUNG === "Wiental-Radweg"){
@@ -56,7 +66,14 @@ let themenradweg1 = L.geoJson.ajax(themenradwege,{
         return {
             color: "red"
         } 
-    }
+    },
+    // //let startmarker = L.marker([], {
+    //     icon: starticon
+    // })
+
+    // //let startmarker = L.marker([], {
+    //     icon: stoppticon
+    // })
     
 }).addTo(themenradweg_1)
 
