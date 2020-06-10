@@ -33,3 +33,4 @@ let rainviewer = L.control.rainviewer({
     animationInterval: 500,
     opacity: 0.5
 });rainviewer.addTo(map);
+
