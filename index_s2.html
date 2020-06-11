@@ -38,16 +38,15 @@
 
 <body>
     <header>
-        <div class="tr">
-            <img id="panorama" src="images/radfahrer.png" alt="Wien Panorama">
-            <img id="logo" src="images/Logo.png" alt="VeloVienna Logo">
-        </div>
-        <div class="tr">
-            <p>Radfahren in Wien</p>
-            <p>Themenradwege</p>
-            <p>Wetterinformationen</p>
-        </div>
+        
+        <img src="images/Header_Bild.jpg" alt="Titelbild">
 
+        <ul>
+            <li><a href="https://velovienna.github.io/index_s1.html">Radfahren in Wien</a></li>
+            <li><a href="https://velovienna.github.io/index_s2.html">Themenradwege</a></li>
+            <li><a href="https://velovienna.github.io/index_s3.html">Wetterinformationen</a></li>
+        </ul>
+    
     </header>
     <main>
         <div id="beschreibung">
@@ -57,6 +56,7 @@
         </div>
         <br>
         <div id="Radwegauswahl_1">
+
             <figure id="themenradweg_1" onclick="radwegHinzufuegen(this.id)">
                 <a href="#map">
                     <img src="images/Wiental_klein.jpg" alt="Wiental im 13. Bezirk">
@@ -71,8 +71,9 @@
                     </tr>
                     <tr><td class="kategorie">Stationen:</td><td>Wiedlingau, Stadtbahnbögen,<br>Kennedybrücke, Schloss Schönbrunn,<br> Magarethengürtel</td></tr>  
                 </table>
-                <a href=""><p>Route als PDF</p></a>
+                <a href="https://www.wien.gv.at/verkehr/radfahren/radnetz/themenradwege/pdf/wiental.pdf"><p>Route als PDF</p></a>
             </figure>
+
             <figure id="themenradweg_2" onclick="radwegHinzufuegen(this.id)">
                 <a href="#map">
                     <img src="images/Burgtheater_klein.jpg" alt="Burgtheater am Ring">
@@ -81,8 +82,9 @@
                 <table>
                     <tr><td>Stationen:</td><td>Universität Wien, Wiener Börse, <br>Donaukanal, <br> Museum für angewandte Kunst <br>, Staatsoper, Parlament,<br> Rathaus</td></tr>
                 </table>
-                <a href=""><p>Route als PDF</p></a>
+                <a href="https://www.wien.gv.at/verkehr/radfahren/radnetz/themenradwege/pdf/ring.pdf"><p>Route als PDF</p></a>
             </figure>
+
             <figure id="themenradweg_3" onclick="radwegHinzufuegen(this.id)">
                 <a href="#map">
                     <img src="images/Guertel_klein.jpg" alt="Guertel">
@@ -93,7 +95,7 @@
                     <tr><td>Ziel:</td><td>Gaudenzdorf</td></tr>
                     <tr><td>Stationen:</td><td>Bahnhof Spittelau, Allgemeines Krankenahus der Stadt Wien, <br> Wien Westbahnhof</td></tr>
                 </table>
-                <a href=""><p>Route als PDF</p></a>
+                <a href="https://www.wien.gv.at/verkehr/radfahren/radnetz/themenradwege/pdf/guertel.pdf"><p>Route als PDF</p></a>
             </figure>
         </div>
 
@@ -108,8 +110,9 @@
                     <tr><td>Ziel:</td><td>Kaiserebersdorf</td></tr>
                     <tr><td>Stationen:</td><td>Knoten Nußdorf, UNO-City,<br> Zentraltanklager OMV,</td></tr>
                 </table>
-                <a href=""><p>Route als PDF</p></a>
+                <a href="https://www.wien.gv.at/verkehr/radfahren/radnetz/themenradwege/pdf/donauradweg.pdf"><p>Route als PDF</p></a>
             </figure>
+
             <figure id="themenradweg_5" onclick="radwegHinzufuegen(this.id)">
                 <a href="#map">
                     <img src="images/Hofburg_klein.jpg" alt="Hofburg">
@@ -122,6 +125,7 @@
                 </table> 
                 <a href="https://www.wien.gv.at/verkehr/radfahren/radnetz/themenradwege/pdf/citydurchfahrt.pdf"><p>Route als PDF</p></a> 
             </figure>
+
             <figure id="themenradweg_6" onclick="radwegHinzufuegen(this.id)">
                 <a href="#map">
                     <img src="images/Staatsoper_klein.jpg" alt="Staatsoper">
@@ -132,11 +136,16 @@
                     <tr><td>Ziel:</td><td>Liesingbach</td></tr>
                     <tr><td>Stationen:</td><td>Rendezvous, Donaukanal <br>, Ring, Hauptbahnhof Wien</td></tr>
                 </table>
-                <a href=""><p>Route als PDF</p></a>
+                
             </figure>
+
         </div>
 
         <div id="map"></div>
+
+        <footer>
+
+        </footer>
 
 
     </main>
