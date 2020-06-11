@@ -61,6 +61,7 @@ tr {
 
 .kategorie {
     text-align: left;
+    max-width: 100%;
 }
 
 #map {
