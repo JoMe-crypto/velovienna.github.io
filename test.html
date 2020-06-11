@@ -5,21 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test mit Grid</title>
 
+    <!-- Einfügen Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+    <!-- Einfügen Leaflet providers Hintergrundkarten -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.9.1/leaflet-providers.js"></script>
+
+    <!-- Einfügen Leaflet ajax -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="test_stylesheet.css">
 
     <!-- JS -->
+    <link rel="stylesheet" href="main_s2.css">
     
 </head>
 <body>
-    <div class="titelbild"></div>
-    <nav><h1>Ich bin die Navigation</h1></nav>
-    <div class="themenradwegauswahl_1"> Hier kommen die ersten Bilder hin</div>
-    <div class="informationenThemenradwege"></div>
-    <div class="themenradwegauswahl_2">Hier kommen die zweiten Bilder hin</div>
-    <div class="informationenThemenradwege"></div>
-    <div id="map"><h1>Das ist die Karte</h1></div>
-    <div class=foot></div>
+
+    <!-- Titelbild mit Logo -->
+
+    <div class="titelbild">
+        <img src="images/vienna_night.png" alt="titelbild">
+    </div>
+
+    <!-- Navigation zu den anderen Seiten -->
+
+    <nav>
+        <a id="navigation_1" href="https://velovienna.github.io/index_s1"><h1>Allgemein</h1></a>
+    </nav>
+
+
+    <div class="themenradwegauswahl">
+        <!-- <img id="themenradweg_1" src="images/Fragezeichen.jpg" alt="Fragezeichen">
+        <img id="themenradweg_2" src="images/Burgtheater.jpg" alt="Fragezeichen">
+        <img id="themenradweg_3" src="images/Guertel.jpg" alt="Fragezeichen">
+        <img id="themenradweg_4" src="images/Donau.jpg" alt="Fragezeichen">
+        <img id="themenradweg_5" src="images/Hofburg.jpg" alt="Fragezeichen">
+        <img id="themenradweg_6"src="images/Fragezeichen.jpg" alt="Fragezeichen"> -->
+        <!-- <table id="themenradweg_1Daten"></table>
+        <table id="themenradweg_2Daten"></table>
+        <table id="themenradweg_3Daten"></table>
+        <table id="themenradweg_4Daten"></table>
+        <table id="themenradweg_5Daten"></table>
+        <table id="themenradweg_6Daten"></table> -->
+    </div>
+    <div id="map"></div>
+    <div class=foot><h1>Der Fuß der Seite</h1></div>
 
     
 </body>
