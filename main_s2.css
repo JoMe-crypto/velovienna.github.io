@@ -26,6 +26,7 @@ header li {
     float: left;
     text-align: center;
     
+    
 }
 
 header a {
@@ -39,10 +40,9 @@ header a {
     margin-bottom: 10px;
     background-color: lightgray;
     color: black;
-    
+    text-decoration: none;
+
 }
-
-
 
 
 /* style main */
