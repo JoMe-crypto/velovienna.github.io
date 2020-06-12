@@ -57,6 +57,8 @@ header a {
 
 #Radwegauswahl .tr {
     display: table-row;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 #Radwegauswahl figure {
