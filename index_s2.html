@@ -15,7 +15,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.9.1/leaflet-providers.js"></script>
 
-    <!-- Einfügen Leaflet providers Hintergrundkarten -->
+    <!-- Einfügen Leaflet ajax -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
 
@@ -38,95 +38,117 @@
 
 <body>
     <header>
-        <div class="tr">
-            <img id="panorama" src="images/radfahrer.png" alt="Wien Panorama">
-            <img id="logo" src="images/Logo.png" alt="VeloVienna Logo">
-        </div>
-        <div class="tr">
-            <p>Radfahren in Wien</p>
-            <p>Themenradwege</p>
-            <p>Wetterinformationen</p>
-        </div>
+        
+        <img src="images/Header_Bild.jpg" alt="Titelbild">
 
+        <ul>
+            <li><a href="https://velovienna.github.io/index_s1.html">Radfahren in Wien</a></li>
+            <li><a href="https://velovienna.github.io/index_s2.html">Themenradwege</a></li>
+            <li><a href="https://velovienna.github.io/index_s3.html">Wetterinformationen</a></li>
+        </ul>
+    
     </header>
     <main>
-        <p>Die Stadt Wien bietet eine breite Auswahl an Themenradwegen. Wählen Sie einen Radweg indem Sie auf
-            das entsprechende Bild klicken oder aktivieren Sie ihn im Kontrollkästchen in der oberen rechten Ecke
-            der Karte weiter unten</p>
+        
 
-
-
+        <div id="beschreibung">
+            <p>Die Stadt Wien bietet eine breite Auswahl an Themenradwegen.</p>
+            <p>Verfolgen Sie die Routen der Themenradwege indem Sie auf das entsprechende Bild klicken.</p>
+            <p>Alternativ können die einzelnen Themenradwege im Kontrollkästchen in der rechten oberen Ecke der Karte aktiviert werden.</p>
+        </div>
+        
+        
         <div id="Radwegauswahl_1">
+
             <figure id="themenradweg_1" onclick="radwegHinzufuegen(this.id)">
                 <a href="#map">
-                    <img src="images/Fragezeichen.jpg" alt="Fragezeichen">
+                    <img src="images/Wiental_klein.jpg" alt="Wiental im 13. Bezirk">
                 </a>
                 <figcaption>Der Wiental-Radweg</figcaption>
-                <p>Start: Weidlingau</p>
-                <p>Ziel: Burgring</p>
-                <p>Länge:</p>
-                <p>Stationen:</p>
-                <a href=""><p>Route als PDF</p></a>
+                <table>
+                    <tr>
+                        <td class="kategorie">Start:</td><td>Weidlingau</td>
+                    </tr>
+                    <tr>
+                        <td class="kategorie">Ziel:</td><td>Burgring</td>
+                    </tr>
+                    <tr><td class="kategorie">Stationen:</td><td>Wiedlingau, Stadtbahnbögen,<br>Kennedybrücke, Schloss Schönbrunn,<br> Magarethengürtel</td></tr>  
+                </table>
+                <a href="https://www.wien.gv.at/verkehr/radfahren/radnetz/themenradwege/pdf/wiental.pdf"><p>Route als PDF</p></a>
             </figure>
+
             <figure id="themenradweg_2" onclick="radwegHinzufuegen(this.id)">
                 <a href="#map">
-                    <img src="images/Burgtheater.jpg" alt="Burgtheater am Ring">
+                    <img src="images/Burgtheater_klein.jpg" alt="Burgtheater am Ring">
                 </a>
                 <figcaption>Der Ring-Rund-Radweg</figcaption>
-                <p>Länge:</p>
-                <p>Stationen:</p>
-                <a href=""><p>Route als PDF</p></a>
+                <table>
+                    <tr><td>Stationen:</td><td>Universität Wien, Wiener Börse, <br>Donaukanal, <br> Museum für angewandte Kunst <br>, Staatsoper, Parlament,<br> Rathaus</td></tr>
+                </table>
+                <a href="https://www.wien.gv.at/verkehr/radfahren/radnetz/themenradwege/pdf/ring.pdf"><p>Route als PDF</p></a>
             </figure>
+
             <figure id="themenradweg_3" onclick="radwegHinzufuegen(this.id)">
                 <a href="#map">
-                    <img src="images/Guertel.jpg" alt="Guertel">
+                    <img src="images/Guertel_klein.jpg" alt="Guertel">
                 </a>
                 <figcaption>Der Gürtel-Radweg</figcaption>
-                <p>Start:Spittelau</p>
-                <p>Ziel: Gaudenzdorf</p>
-                <p>Länge:</p>
-                <p>Stationen:</p>
-                <a href=""><p>Route als PDF</p></a>
+                <table>
+                    <tr><td>Start:</td><td>Spittelau</td></tr>
+                    <tr><td>Ziel:</td><td>Gaudenzdorf</td></tr>
+                    <tr><td>Stationen:</td><td>Bahnhof Spittelau, Allgemeines Krankenahus der Stadt Wien, <br> Wien Westbahnhof</td></tr>
+                </table>
+                <a href="https://www.wien.gv.at/verkehr/radfahren/radnetz/themenradwege/pdf/guertel.pdf"><p>Route als PDF</p></a>
             </figure>
         </div>
 
         <div id="Radwegauswahl_2">
             <figure id="themenradweg_4" onclick="radwegHinzufuegen(this.id)">
                 <a href="#map">
-                    <img src="images/Donau.jpg" alt="Donau">
+                    <img src="images/Donau_klein.jpg" alt="Donau">
                 </a>
                 <figcaption>Der Donau-Radweg</figcaption>
-                <p>Start: Marinekaserne (Wien)</p>
-                <p>Ziel: </p>
-                <p>Länge:</p>
-                <p>Stationen:</p>
-                <a href=""><p>Route als PDF</p></a>
+                <table>
+                    <tr><td>Start:</td><td>Kahlenbergdorf</td></tr>
+                    <tr><td>Ziel:</td><td>Kaiserebersdorf</td></tr>
+                    <tr><td>Stationen:</td><td>Knoten Nußdorf, UNO-City,<br> Zentraltanklager OMV,</td></tr>
+                </table>
+                <a href="https://www.wien.gv.at/verkehr/radfahren/radnetz/themenradwege/pdf/donauradweg.pdf"><p>Route als PDF</p></a>
             </figure>
+
             <figure id="themenradweg_5" onclick="radwegHinzufuegen(this.id)">
                 <a href="#map">
-                    <img src="images/Hofburg.jpg" alt="Hofburg">
+                    <img src="images/Hofburg_klein.jpg" alt="Hofburg">
                 </a>
                 <figcaption>Der City-Radweg</figcaption>
-                <p>Start: Schottengasse</p>
-                <p>Ziel: Staatsoper</p>
-                <p>Länge:</p>
-                <p>Stationen:</p>
-                <a href="https://www.wien.gv.at/verkehr/radfahren/radnetz/themenradwege/pdf/citydurchfahrt.pdf"><p>Route als PDF</p></a>
+                <table>
+                    <tr><td>Start:</td><td>Schottengasse</td></tr>
+                    <tr><td>Ziel:</td><td>Staatsoper</td></tr>
+                    <tr><td>Stationen</td><td>Schottenstift, Hofburg, <br>Albertina</td></tr>
+                </table> 
+                <a href="https://www.wien.gv.at/verkehr/radfahren/radnetz/themenradwege/pdf/citydurchfahrt.pdf"><p>Route als PDF</p></a> 
             </figure>
+
             <figure id="themenradweg_6" onclick="radwegHinzufuegen(this.id)">
                 <a href="#map">
-                    <img src="images/Fragezeichen.jpg" alt="Fragezeichen">
+                    <img src="images/Staatsoper_klein.jpg" alt="Staatsoper">
                 </a>
                 <figcaption>Der Bernstein-Radweg</figcaption>
-                <p>Start:</p>
-                <p>Ziel:</p>
-                <p>Länge:</p>
-                <p>Stationen:</p>
-                <a href=""><p>Route als PDF</p></a>
+                <table>
+                    <tr><td>Start:</td><td>Marchfeldkanal</td></tr>
+                    <tr><td>Ziel:</td><td>Liesingbach</td></tr>
+                    <tr><td>Stationen:</td><td>Rendezvous, Donaukanal <br>, Ring, Hauptbahnhof Wien</td></tr>
+                </table>
+                
             </figure>
+
         </div>
 
         <div id="map"></div>
+
+        <footer>
+
+        </footer>
 
 
     </main>
