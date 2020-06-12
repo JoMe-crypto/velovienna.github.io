@@ -49,43 +49,37 @@ header a {
 
 
 
-#Radwegauswahl_1,  #Radwegauswahl_2 {
+#Radwegauswahl {
     display: table;
     width: 100%;
     margin-bottom: 50px;
 }
 
-#Radwegauswahl_1 figure, #Radwegauswahl_2 figure {
-    display: table-cell;
-    padding: 10px;
-    text-align: center;   
+#Radwegauswahl .tr {
+    display: table-row;
 }
 
-#Radwegauswahl_1 figure img, #Radwegauswahl_2 figure img {
+#Radwegauswahl figure {
+    display: table-cell;
+    text-align: center;
+    width: 33.33%;   
+}
+
+#Radwegauswahl table {
+    display: table-cell;
+    width: 33.33%;
+}
+
+#Radwegauswahl figure img {
     width: 250px;
     height: 250px;
     border-radius: 50%;
 }
 
-#Radwegauswahl_1 figure figcaption,  #Radwegauswahl_2 figure figcaption{
-    font-style: italic;
-    
-    padding: 5px;
+#Radwegauswahl td {
+    background-color: lightgray;
 }
-
-#Radwegauswahl_1 figure table,  #Radwegauswahl_2 figure table{
-    font-family: Arial, Helvetica, sans-serif;
-    
-}
-
-tr {
-    text-align: end;
-}
-
-.kategorie {
-    text-align: left;
-    max-width: 100%;
-}
+/* style map */
 
 #map {
     width: 100%;
