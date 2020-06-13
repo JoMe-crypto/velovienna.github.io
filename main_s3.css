@@ -8,6 +8,24 @@ body{
    */
 }
 
+table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+    text-align: left;
+}
+
+td {
+    border: 1px solid #dddddd
+    text-align left;
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd
+}
 header {
 font-size: 0.8em;
 font-weight: bold;
@@ -30,6 +48,8 @@ text-align: right;
     height: 360px;
     border: 1px solid gray;
 }
+
+
 
 /*
 @media screen and (max-width:900px){
