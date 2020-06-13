@@ -100,9 +100,13 @@ L.control.scale(
 //     // travelModeButton4StyleClass: "fas fa-walking",
 //     // travelModeButton4Tooltip: "Fortbewegungsart: zu Fuß"
 
-
-
 // }).addTo(map);
+
+let bikeicon = L.divIcon({
+    html: '<i class="fas fa-bicycle"></i>',
+    iconSize: [20, 20],
+    className: 'myDivIcon'
+});
 
 L.control.reachability({
     // add settings/options here
@@ -112,11 +116,48 @@ L.control.reachability({
 
     travelModeButton1Content: '',
     travelModeButton1StyleClass: 'fa fa-bicycle',
-    travelModeButton1Tooltip: 'Road bike',
-    travelModeProfile1: 'cycling-road',
+    travelModeButton1Tooltip: 'Fortbewegungsart: Fahrrad',
+    travelModeProfile1: 'cycling-regular',
+
+    //Ab hier geht's nicht mehr...
+
+    travelModeButton2Content: '',
+    travelModeButton2StyleClass: bikeicon,
+    travelModeButton2Tooltip: 'Fortbewegungsart: e-bike',
+    travelModeProfile2: 'cycling-electric',
+
+    travelModeButton3Content: '',
+    travelModeButton3StyleClass: 'fas fa-walking',
+    travelModeButton3Tooltip: 'Fortbewegungsart: zu Fuß',
+    travelModeProfile3: 'foot-walking',
+
+    travelModeButton4Content: '',
+    travelModeButton4StyleClass: 'fas fa-car',
+    travelModeButton4Tooltip: 'Fortbewegungsart: Auto',
+    travelModeProfile4: 'car',
+
+    //Styling edit-Buttons
+
+    drawButtonContent:'',
+    drawButtonStyleClass:'fas fa-pencil-alt',
+    drawButtonTooltip:'Ausgangspunkt setzen',
+
+    deleteButtonContent:'',
+    deleteButtonStyleClass:'fas fa-trash-alt',
+    deleteButtonTooltip:'Reichweite löschen',
+
+    distanceButtonContent:'',
+    distanceButtonStyleClass: "  fas fa-road  ",
+    distanceButtonTooltip: "Reichweite nach Distanz",
+    
+
 
     
 }).addTo(map);
+
+
+
+
 
 let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
 
