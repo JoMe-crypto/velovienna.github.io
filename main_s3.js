@@ -51,6 +51,12 @@ function weatherInfo(id=2761369) {
       window.onload = function() {
         weatherInfo(2761369);
       }
+
+if (location.protocol === 'http:'){
+    url = 'http://api.openweathermap.org/data/2.5/forecast?q=Vienna,AT&units=metric&APPID=e105b8b9538822cec7ff5f7d006f2e9a'
+} else { 
+    url = 'https:api.openweathermap.org/data/2.5/forecast?q=Vienna,AT&units=metric&APPID=e105b8b9538822cec7ff5f7d006f2e9'
+}
     
 function showForecast (d) {
         //var celcius = Math.round(parseFloat(d.main.temp)-273.15);
