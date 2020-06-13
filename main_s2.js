@@ -279,3 +279,17 @@ map.on("zoomend moveend", function (evt) {
         }
     });
 });wikipedia.addTo(map);
+
+L.control.reachability({
+    // add settings/options here
+    apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5',
+
+    //Styling travel Mode Buttons
+
+    travelModeButton1Content: '',
+    travelModeButton1StyleClass: 'fa fa-bicycle',
+    travelModeButton1Tooltip: 'Road bike',
+    travelModeProfile1: 'cycling-road',
+
+    
+}).addTo(map);
