@@ -66,23 +66,23 @@ header a {
      margin-bottom: 1em;
  }
 
- /* h1 {
-     font-size: 5em;
+ /* style first title */
+ h1 {
+     font-size: 1.5em;
      font-weight: bold;
+     text-align:center;
      color: whitesmoke;
-     background-color: darkblue;
-     border-radius: 0.5em;
- } */
+     background-color: indianred;
+     border-radius: 0.7em;
+     border-color: indianred;
+     margin-top:7em;
+ }
 
 
 /* style paragraphs and titles */
 
  .textstyle {
      margin-top: 1em;
- }
-
- .firsth2 {
-     margin-top: 7em;
  }
 
 
