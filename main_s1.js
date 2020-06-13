@@ -48,59 +48,7 @@ L.control.scale(
 ).addTo(map);
 
 
-
-
-// L.control.reachability({
-//     // add settings/options here
-//     apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5',
-
-//     rangeControlDistanceTitle: "Distanz",
-//     rangeControlDistanceMax: 10,
-//     rangeControlDistanceInterval: 1,
-//     rangeControlTimeTitle: "Zeit",
-//     rangeControlTimeMax: 60,
-//     rangeControlTimeInterval: 10,
-
-//     travelModeProfile1: "car",
-//     travelModeProfile2: "cycling-regular",
-//     // travelModeProfile3: "cycling-electric",
-//     // travelModeProfile4: "foot-walking",
-//     travelModeProfile3: null,
-//     travelModeProfile4: null,
-
-//     drawButtonContent:'',
-//     drawButtonStyleClass: 'fas fa-pencil-alt',
-//     drawButtonTooltip: "Ausganspunkt setzen",
-
-//     deleteButtonContent:'',
-//     deleteButtonStyleClass: '  fas fa-trash-alt  ',
-//     deleteButtonTooltip: "Reichweite löschen",
-
-//     distanceButtonContent:'',
-//     distanceButtonStyleClass: "  fas fa-road  ",
-//     distanceButtonTooltip: "Reichweite nach Distanz",
-
-//     timeButtonContent:"",
-//     timeButtonStyleClass: "far fa-clock",
-//     timeButtonTooltip: "Reichweite nach Zeit",
-
-//     travelModeButton1Content: "",
-//     travelModeButton1StyleClass: "fas fa-car",
-//     travelModeButton1Tooltip: "Fortbewegungsart: Auto",
-
-//     travelModeButton2Content: "",
-//     travelModeButton2StyleClass: "fas fa-bicycle",
-//     travelModeButton2Tooltip: "Fortbewegungsart: Rad",
-
-//     // travelModeButton3Content: "",
-//     // travelModeButton3StyleClass: "fas fa-charging-station",
-//     // travelModeButton3Tooltip: "Fortbewegungsart: e-bike",
-
-//     // travelModeButton4Content: "",
-//     // travelModeButton4StyleClass: "fas fa-walking",
-//     // travelModeButton4Tooltip: "Fortbewegungsart: zu Fuß"
-
-// }).addTo(map);
+//Leaflet Reachability
 
 let bikeicon = L.divIcon({
     html: '<i class="fas fa-bicycle"></i>',
@@ -149,10 +97,18 @@ L.control.reachability({
     distanceButtonContent:'',
     distanceButtonStyleClass: "  fas fa-road  ",
     distanceButtonTooltip: "Reichweite nach Distanz",
-    
 
+    timeButtonContent:"",
+    timeButtonStyleClass: "far fa-clock",
+    timeButtonTooltip: "Reichweite nach Zeit",
 
-    
+    rangeControlDistanceTitle: "Distanz",
+    rangeControlDistanceMax: 10,
+    rangeControlDistanceInterval: 1,
+    rangeControlTimeTitle: "Zeit",
+    rangeControlTimeMax: 60,
+    rangeControlTimeInterval: 10
+      
 }).addTo(map);
 
 
