@@ -36,7 +36,7 @@ let rainviewer = L.control.rainviewer({
 
 function weatherInfo(id=2761369) {
     var key = '{e105b8b9538822cec7ff5f7d006f2e9a}';
-    fetch('https://api.openweathermap.org/data/2.5/forecast?q=Vienna,AT&units=metric&APPID=e105b8b9538822cec7ff5f7d006f2e9a')  
+    fetch('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=Vienna,AT&units=metric&APPID=e105b8b9538822cec7ff5f7d006f2e9a')  
         .then(function(resp) { return resp.json() }) 
         .then(function(data) {
           showForecast(data);
