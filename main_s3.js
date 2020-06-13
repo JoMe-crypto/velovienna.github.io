@@ -52,7 +52,7 @@ function weatherInfo(id=2761369) {
         weatherInfo(2761369);
       }
     
-      function showForecast (d) {
+function showForecast (d) {
         //var celcius = Math.round(parseFloat(d.main.temp)-273.15);
           //document.getElementById('date').innerHTML = d.list[0].sys.dt_txt; 
           document.getElementById('description').innerHTML = d.list[0].weather[0].description;
@@ -63,7 +63,7 @@ function weatherInfo(id=2761369) {
       
       }
     
-    function showMorgen (d) {
+function showMorgen (d) {
         //var celcius = Math.round(parseFloat(d.main.temp)-273.15);
           //document.getElementById('date').innerHTML = d.list[1].sys.dt_txt; 
           document.getElementById('description_1').innerHTML = d.list[1].weather[0].description;
@@ -74,7 +74,7 @@ function weatherInfo(id=2761369) {
       
       }
     
-      function showÜbermorgen (d) {
+function showÜbermorgen (d) {
         //var celcius = Math.round(parseFloat(d.main.temp)-273.15);
           //document.getElementById('date').innerHTML = d.list[1].sys.dt_txt; 
           document.getElementById('description_2').innerHTML = d.list[2].weather[0].description;
