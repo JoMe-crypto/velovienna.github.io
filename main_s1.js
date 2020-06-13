@@ -63,18 +63,20 @@ L.control.reachability({
 
     travelModeProfile1: "car",
     travelModeProfile2: "cycling-regular",
-    travelModeProfile3: "cycling-electric",
-    travelModeProfile4: "foot-walking",
+    // travelModeProfile3: "cycling-electric",
+    // travelModeProfile4: "foot-walking",
+    travelModeProfile3: null,
+    travelModeProfile4: null,
 
-    drawButtonContent:"",
-    drawButtonStyleClass: "fas fa-pencil-alt",
+    drawButtonContent:'',
+    drawButtonStyleClass: 'fas fa-pencil-alt',
     drawButtonTooltip: "Ausganspunkt setzen",
 
-    deleteButtonContent:"",
-    deleteButtonStyleClass: "  fas fa-trash-alt  ",
+    deleteButtonContent:'',
+    deleteButtonStyleClass: '  fas fa-trash-alt  ',
     deleteButtonTooltip: "Reichweite löschen",
 
-    distanceButtonContent:"",
+    distanceButtonContent:'',
     distanceButtonStyleClass: "  fas fa-road  ",
     distanceButtonTooltip: "Reichweite nach Distanz",
 
@@ -90,18 +92,19 @@ L.control.reachability({
     travelModeButton2StyleClass: "fas fa-bicycle",
     travelModeButton2Tooltip: "Fortbewegungsart: Rad",
 
-    travelModeButton3Content: "",
-    travelModeButton3StyleClass: "fas fa-charging-station",
-    travelModeButton3Tooltip: "Fortbewegungsart: e-bike",
+    // travelModeButton3Content: "",
+    // travelModeButton3StyleClass: "fas fa-charging-station",
+    // travelModeButton3Tooltip: "Fortbewegungsart: e-bike",
 
-    travelModeButton4Content: "",
-    travelModeButton4StyleClass: "fas fa-walking",
-    travelModeButton4Tooltip: "Fortbewegungsart: zu Fuß",
+    // travelModeButton4Content: "",
+    // travelModeButton4StyleClass: "fas fa-walking",
+    // travelModeButton4Tooltip: "Fortbewegungsart: zu Fuß"
 
 
 
 }).addTo(map);
 
+// far fa-clock
 
 let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
 
