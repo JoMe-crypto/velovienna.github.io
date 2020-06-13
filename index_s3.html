@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="main_s3.css">
     <script defer src="main_s3.js"></script>
 
-<!-- <template id="api-template">
+    <!-- <template id="api-template">
     <div>Name:{NAME_Kurz}</div>
     <div>Original Daten:<a href="{https://go.gv.at/l9lumesakt}">Hier Klicken</a></div>
 
@@ -47,88 +47,86 @@
 
 </head>
 <header>
-    <img class="banner" src="images/vienna_night.png" alt="vienna panorama at night">
+    <img src="images/Header_Bild.jpg" alt="Titelbild">
     <p>Angezeigt Daten werden bereigestellt von: LINK </p>
+
+<h1>Wettervorschau Wien</h1>  
+
 </header>
+
 <body>
-    <!-- div id="api-content"></div> -->
-<div id="map"></div>
 
-        <h1>Wettervorschau Wien</h1>
+    <div id="map"></div>
 
-        <table>
-            <tr>
-                <th></th>
-                <th>Heute</th>
-                <th>Morgen</th>
-                <th>Übermorgen</th>
-            </tr>
-            <tr>
-                <td>Bewölkung</td>
-                <td>
-                    <div id="description"></div>
-                </td>
-                <td>
-                    <div id="description_1"></div>
-                </td>
-                <td>
-                    <div id="description_2"></div>
-                </td>
-            </tr>
-            <tr>
-                <td>Temperatur</td>
-                <td>
-                    <div id="temp"></div>
-                </td>
-                <td>
-                    <div id="temp_1"></div>
-                </td>
-                <td>
-                    <div id="temp_2"></div>
-                </td>
-            </tr>
-            <tr>
-                <td>Wind</td>
-                <td>
-                    <div id="wind"></div>
-                </td>
-                <td>
-                    <div id="wind_1"></div>
-                </td>
-                <td>
-                    <div id="wind_2"></div>
-                </td>
-            </tr>
-            <tr>
-                <td>Luftfeuchtigkeit</td>
-                <td>
-                    <div id="humidity"></div>
-                </td>
-                <td>
-                    <div id="humidity_1"></div>
-                </td>
-                <td>
-                    <div id="humidity_2"></div>
-                </td>
-            </tr>
-        </table>
-        </main>
+<h2>Drei Tages Vorschau</h2>
 
-        <footer>
-            <nav>
-                <ul>
-                    <li><a class="back" href="http://127.0.0.1:5501/index_s1.html">Wien für Radfahrer</a></li>
-                    <li><a class="back" href="http://127.0.0.1:5501/index_s2.html">Themenradwege</a></li>
-                </ul>
-                <address>
-                    <a href="mailto:johannes.melchert@student.uibk.ac.at"><i class="fas fa-paper-plane"></i>
-                        Johannes Melchert</a> -
-                    <a href="https://github.com/JoMe-crypto/JoMe-crypto.github.io.git">github.com/JoMe-crypto <i
-                            class="fab fa-github"></i></a>
-                    <span>Open Government Data (OGD)</span>
-                </address>
-            </nav>
-        </footer>
+    <table>
+        <tr>
+            <th></th>
+            <th>Heute</th>
+            <th>Morgen</th>
+            <th>Übermorgen</th>
+        </tr>
+        <tr>
+            <td>Bewölkung</td>
+            <td>
+                <div id="description"></div>
+            </td>
+            <td>
+                <div id="description_1"></div>
+            </td>
+            <td>
+                <div id="description_2"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Temperatur</td>
+            <td>
+                <div id="temp"></div>
+            </td>
+            <td>
+                <div id="temp_1"></div>
+            </td>
+            <td>
+                <div id="temp_2"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Wind</td>
+            <td>
+                <div id="wind"></div>
+            </td>
+            <td>
+                <div id="wind_1"></div>
+            </td>
+            <td>
+                <div id="wind_2"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Luftfeuchtigkeit</td>
+            <td>
+                <div id="humidity"></div>
+            </td>
+            <td>
+                <div id="humidity_1"></div>
+            </td>
+            <td>
+                <div id="humidity_2"></div>
+            </td>
+        </tr>
+    </table>
+    </main>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="https://velovienna.github.io/index_s1.html">Radfahren in Wien</a></li>
+                <li><a href="https://velovienna.github.io/index_s2.html">Themenradwege</a></li>
+                <li><a href="https://velovienna.github.io/index_s3.html">Wetterinformationen</a></li>
+            </ul>
+        </nav>
+    </footer>
 </body>
 
 <main>
