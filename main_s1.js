@@ -26,11 +26,7 @@ let radwegenebenGroup = L.featureGroup();
 
 L.control.layers({
     "BasemapAT": startLayer,
-    "CycleOSM": L.tileLayer.provider("CyclOSM"),
-    // "BasemapAT.terrain": L.tileLayer.provider("BasemapAT.terrain"),
-    // "BasemapAT.surface": L.tileLayer.provider("BasemapAT.surface"),
     "BasemapAT.orthofoto": L.tileLayer.provider("BasemapAT.orthofoto"),
-    "Stamen.Terrain": L.tileLayer.provider("Stamen.Terrain"),
     "OpenTopoMap": L.tileLayer.provider("OpenTopoMap")
 }, {
     "Abstellanlagen": abstellGroup,
