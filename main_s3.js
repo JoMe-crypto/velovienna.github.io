@@ -36,7 +36,7 @@ let rainviewer = L.control.rainviewer({
 
 function weatherInfo(id=2761369) {
     var key = '{e105b8b9538822cec7ff5f7d006f2e9a}';
-    fetch('http://api.openweathermap.org/data/2.5/forecast?q=Vienna,AT&units=metric&APPID=e105b8b9538822cec7ff5f7d006f2e9a')  
+    fetch('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=Vienna,AT&units=metric&APPID=e105b8b9538822cec7ff5f7d006f2e9a')  
         .then(function(resp) { return resp.json() }) 
         .then(function(data) {
           showForecast(data);
@@ -52,12 +52,12 @@ function weatherInfo(id=2761369) {
         weatherInfo(2761369);
       }
 
-if (location.protocol === 'http:'){
-    url = 'http://api.openweathermap.org/data/2.5/forecast?q=Vienna,AT&units=metric&APPID=e105b8b9538822cec7ff5f7d006f2e9a'
+/*if (location.protocol === 'http:'){
+      url = 'http://api.openweathermap.org/data/2.5/forecast?q=Vienna,AT&units=metric&APPID=e105b8b9538822cec7ff5f7d006f2e9a'
 } else { 
     url = 'https:api.openweathermap.org/data/2.5/forecast?q=Vienna,AT&units=metric&APPID=e105b8b9538822cec7ff5f7d006f2e9'
 }
-    
+*/    
 function showForecast (d) {
         //var celcius = Math.round(parseFloat(d.main.temp)-273.15);
           //document.getElementById('date').innerHTML = d.list[0].sys.dt_txt; 
