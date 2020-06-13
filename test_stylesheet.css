@@ -1,0 +1,39 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-rows: 25% 25% 25% 25%;
+      
+}
+
+.titelbild {
+    background: blue;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    
+}
+
+.box-1 {
+    background: red;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    
+}
+
+#map {
+    background: green;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}

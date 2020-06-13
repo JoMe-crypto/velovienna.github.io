@@ -1,4 +1,4 @@
-//Variablen
+
 
 let startLayer = L.tileLayer.provider("BasemapAT.grau");
 
@@ -9,6 +9,14 @@ let map = L.map("map", {
         startLayer
     ]
 });
+
+var north = L.control({position: "bottomright"});
+north.onAdd = function(map) {
+    var div = L.DomUtil.create("div", "info legend");
+    div.innerHTML = '<img src="your-north-arrow.png">';
+    return div;
+}
+north.addTo(map);
 
 // Layer Auswahl
 
@@ -23,11 +31,7 @@ let wikipedia = L.featureGroup();
 
 L.control.layers({
     "BasemapAT": startLayer,
-    "CycleOSM": L.tileLayer.provider("CyclOSM"),
-    // "BasemapAT.terrain": L.tileLayer.provider("BasemapAT.terrain"),
-    // "BasemapAT.surface": L.tileLayer.provider("BasemapAT.surface"),
     "BasemapAT.orthofoto": L.tileLayer.provider("BasemapAT.orthofoto"),
-    "Stamen.Terrain": L.tileLayer.provider("Stamen.Terrain"),
     "OpenTopoMap": L.tileLayer.provider("OpenTopoMap")
 }, {
     "Wiental-Radweg": themenradweg_1,
@@ -41,9 +45,29 @@ L.control.layers({
 
 }).addTo(map);
 
+L.control.scale(
+    metric= true, 
+    imperial= false, 
+    position="bottomleft"
+).addTo(map);
+
 //Einlesen (zu FeatureGroups hinzufügen) und Stylen der Radwege mit Ajax
 
 let themenradwege = " https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:THEMENRADWEGOGD&srsName=EPSG:4326&outputFormat=json"
+
+// let starticon = L.icon ({
+//     iconSize: [32, 37],
+//     iconAnchor: [16, 37],
+//     iconUrl: `icons/${feature.properties.BEZEICHNUNG}_start`
+// })
+
+// let stoppicon = L.icon({
+//     iconSize: [32, 37],
+//     iconAnchor: [16, 37],
+//     iconUrl: `icons/${feature.properties.BEZEICHNUNG}_stopp`
+
+
+// })
 
 let themenradweg1 = L.geoJson.ajax(themenradwege,{
     filter: function (feature) {
@@ -56,7 +80,17 @@ let themenradweg1 = L.geoJson.ajax(themenradwege,{
         return {
             color: "red"
         } 
-    }
+    },
+    // //let startmarker = L.marker([], {
+    //     icon: starticon
+    // })
+
+    // //let startmarker = L.marker([], {
+    //     icon: stoppticon
+    // })
+
+    //Start 48.210312 16.212025
+    //Stopp 
     
 }).addTo(themenradweg_1)
 
@@ -87,6 +121,10 @@ let themenradweg3 = L.geoJson.ajax(themenradwege,{
         } 
     }
 
+    //Start 48.232643 16.360900
+    //Ziel 48.188479 16.338861
+
+
 }).addTo(themenradweg_3)
 
 let themenradweg4 = L.geoJson.ajax(themenradwege,{
@@ -101,6 +139,9 @@ let themenradweg4 = L.geoJson.ajax(themenradwege,{
         } 
     }
 
+    //Start 
+    //Ziel
+
 }).addTo(themenradweg_4)
 
 let themenradweg5 = L.geoJson.ajax(themenradwege,{
@@ -114,6 +155,9 @@ let themenradweg5 = L.geoJson.ajax(themenradwege,{
             color: "magenta"
         } 
     }
+
+    //Start 48.213966 16.362555
+    //Ziel  48.202888, 16.368029
     
 }).addTo(themenradweg_5)
 
