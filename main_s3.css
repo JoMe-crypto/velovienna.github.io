@@ -1,9 +1,11 @@
 body {
-    max-width: 1280px;
  font-family: 'Roboto', sans-serif;
- margin: 0;
+ margin: auto;
  padding: 0;
  scroll-behavior: smooth;
+ text-align: left;
+ width: 100%;
+ height: auto;
    
 }
 header img {
@@ -21,15 +23,13 @@ margin-top: 2em;
 }
 
 header ul {
-    background-color: green;
     list-style-type: none;
     margin: 0;
-    padding: 0;
-    
+    padding: 0;    
 }
 
 header li {
-    float: left;
+    float: right;
     text-align: center;
       
 }
@@ -67,12 +67,6 @@ tr:nth-child(even) {
     background-color: #dddddd
 }
 
-
-footer {
-    font-size: 1em;
-    text-align: center;
-}
-
 address {
 text-align: right;
 }
@@ -83,15 +77,14 @@ text-align: right;
     border: 1px solid gray;
 }
 
+footer {
+    font-size: 0.7em;
+    text-align: right;
+    line-height: 0.5em;
+    background-color: lightgray;
+    padding: 5px;
+}
 
-
-/*
-@media screen and (max-width:900px){
-    main {
-        width: 90%;
-    }
-
-    header img.banner {
-        width: 100vw;
-    }
+.footerh3 {
+    margin-bottom: 1em;
 }
