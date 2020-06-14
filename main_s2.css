@@ -122,3 +122,17 @@ header a {
 #beschreibung {
     text-align: center;
 }
+
+/* style footer */
+
+footer {
+    font-size: 0.7em;
+    text-align: right;
+    line-height: 0.5em;
+    background-color: lightgray;
+    padding: 5px;
+}
+
+.footerh3 {
+    margin-bottom: 1em;
+}
