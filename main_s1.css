@@ -114,7 +114,8 @@ header a {
  .reachability-control-settings-button
             {
                 font-size: 100px;
-                display: block;
+                display: inline-block;
+                padding-top: 20px;
             }
 
  /* font-family: 'Roboto', sans-serif; */
