@@ -10,14 +10,6 @@ let map = L.map("map", {
     ]
 });
 
-var north = L.control({position: "bottomright"});
-north.onAdd = function(map) {
-    var div = L.DomUtil.create("div", "info legend");
-    div.innerHTML = '<img src="your-north-arrow.png">';
-    return div;
-}
-north.addTo(map);
-
 // Layer Auswahl
 
 let themenradweg_1 = L.featureGroup();
