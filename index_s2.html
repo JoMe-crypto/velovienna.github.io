@@ -32,13 +32,7 @@
     <link rel="stylesheet" href="main_s2.css">
     <script defer src="main_s2.js"></script>
 
-    <!-- Reachability PlugIn -->
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.0/leaflet.reachability.css"/>
-    <script src="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.0/leaflet.reachability.js"></script>
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-
 
 
 </head>
@@ -71,18 +65,21 @@
                         <img src="images/Wiental_klein.jpg" alt="Wiental im 13. Bezirk">
                     </a>
                     <figcaption>Der Wiental-Radweg</figcaption>
+                    <p><a href="https://commons.wikimedia.org/wiki/File:Wiental_im_13.Bezirk_02.jpg">&copy;Anna Saini</a></p>
                 </figure>
                 <figure id="themenradweg_2" onclick="radwegHinzufuegen(this.id)" class="bild">
                     <a href="#map">
                         <img src="images/Burgtheater_klein.jpg" alt="Burgtheater am Ring">
                     </a>
                     <figcaption>Der Ring-Rund-Radweg</figcaption>
+                    <p><a href="https://pixabay.com/de/photos/burgtheater-wien-herbst-stadt-495985/">&copy;495756</a></p>
                 </figure>
                 <figure id="themenradweg_3" onclick="radwegHinzufuegen(this.id)" class="bild">
                     <a href="#map">
                         <img src="images/Guertel_klein.jpg" alt="Guertel">
                     </a>
                     <figcaption>Der Gürtel-Radweg</figcaption>
+                    <p><a href="https://pixabay.com/de/photos/architektur-reise-stadt-beleuchtet-3222257/">&copy;felix_w</a></p>
                 </figure>
             </div>
 
@@ -116,18 +113,21 @@
                         <img src="images/Donau_klein.jpg" alt="Donau">
                     </a>
                     <figcaption>Der Donau-Radweg</figcaption>
+                    <p><a href="https://pixabay.com/de/photos/wien-österreich-architektur-2506903/">&copy;falco</a></p>
                 </figure>
                 <figure id="themenradweg_5" onclick="radwegHinzufuegen(this.id)" class="bild">
                     <a href="#map">
                         <img src="images/Hofburg_klein.jpg" alt="Hofburg">
                     </a>
-                    <figcaption>Der City-Radweg</figcaption>   
+                    <figcaption>Der City-Radweg</figcaption>
+                    <p><a href="https://pixabay.com/de/photos/wien-hofburg-michaelertrakt-bauwerk-1549923/">&copy;domeckopol</a></p>   
                 </figure>
                 <figure id="themenradweg_6" onclick="radwegHinzufuegen(this.id)" class="bild">
                     <a href="#map">
                         <img src="images/Staatsoper_klein.jpg" alt="Staatsoper">
                     </a>
-                    <figcaption>Der Bernstein-Radweg</figcaption> 
+                    <figcaption>Der Bernstein-Radweg</figcaption>
+                    <p><a href="https://commons.wikimedia.org/wiki/File:Staatsoper_Wien_DSC_5273w.jpg">&copy;P e z i</a></p> 
                 </figure>
             </div>
 
@@ -155,13 +155,15 @@
                 </figure>
             </div>
         </div>
-
         <div id="map"></div>
-
-        <footer></footer>
-
-
     </main>
+    <footer>
+        <h3 class="footerh3">Datenquellen</h3>
+        <p>Alle Datensätze von data.gv.at: <a href="https://www.data.gv.at/katalog/dataset/ff99d26f-8176-4c81-a60c-dfc0bf9a226c"> Themenradwege</a></p>  
+        <p><a href="https://mapicons.mapsmarker.com">Icons</a></p>
+        <p>Bildquellen: <a href="">wikimedia commons,</a><a href=""> pixabay</a></p>
+        <p>&copy; Feiel, Melchert, Reisenauer 2020</p>
+    </footer>
 </body>
 
 </html>

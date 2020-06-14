@@ -25,7 +25,7 @@
 }
 
 header ul {
-    background-color: green;
+    /* background-color: green; */
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -44,8 +44,8 @@ header a {
     width: 30.33vw;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-left: 1.5vw;
-    margin-right: 1.5vw;
+    /* margin-left: 1.5vw; */
+    /* margin-right: 1.5vw; */
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: lightgray;
@@ -60,6 +60,8 @@ header a {
      font-size: 0.7em;
      text-align: right;
      line-height: 0.5em;
+     background-color: lightgray;
+     padding: 5px;
  }
 
  .footerh3 {
