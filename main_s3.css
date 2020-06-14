@@ -1,8 +1,11 @@
 body {
  font-family: 'Roboto', sans-serif;
- margin: 0;
+ margin: auto;
  padding: 0;
  scroll-behavior: smooth;
+ text-align: left;
+ width: 100%;
+ height: auto;
    
 }
 header img {
@@ -20,15 +23,13 @@ margin-top: 2em;
 }
 
 header ul {
-    background-color: green;
     list-style-type: none;
     margin: 0;
-    padding: 0;
-    
+    padding: 0;    
 }
 
 header li {
-    float: left;
+    float: right;
     text-align: center;
       
 }
