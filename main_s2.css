@@ -113,12 +113,27 @@ header a {
 /* style map */
 
 #map {
-    width: 100%;
-    height: 500px;
+    width: 94%;
+    height: 700px;
     border: 1px solid gray;
     background-color: grey;
+    margin: 3%;
 }
 
 #beschreibung {
     text-align: center;
+}
+
+/* style footer */
+
+footer {
+    font-size: 0.7em;
+    text-align: right;
+    line-height: 0.5em;
+    background-color: lightgray;
+    padding: 5px;
+}
+
+.footerh3 {
+    margin-bottom: 1em;
 }
