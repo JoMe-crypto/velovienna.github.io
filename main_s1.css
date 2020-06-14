@@ -1,8 +1,8 @@
  body {
     max-width: 1280px;
  font-family: 'Roboto', sans-serif;
-    margin-left: 2em;
-    margin-right: 1em;
+    margin-left: 0em;
+    margin-right: 0em;
     line-height: 1.5em;
     scroll-behavior: smooth;
  }
@@ -44,8 +44,8 @@ header a {
     width: 30.33vw;
     padding-top: 10px;
     padding-bottom: 10px;
-    /* margin-left: 1.5vw; */
-    /* margin-right: 1.5vw; */
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: lightgray;
@@ -108,9 +108,11 @@ header a {
      border: 1px solid gray;
  }
 
- .reachability-control-settings-button {
-     font-size: 22px;
- }
+ .reachability-control-settings-button
+            {
+                font-size: 100px;
+                display: block;
+            }
 
  /* font-family: 'Roboto', sans-serif; */
  /* line-height = Zeilenabstand
