@@ -57,7 +57,11 @@ function weatherInfo(id=2761369) {
 } else { 
     url = 'https:api.openweathermap.org/data/2.5/forecast?q=Vienna,AT&units=metric&APPID=e105b8b9538822cec7ff5f7d006f2e9'
 }
-*/    
+
+function normalTimeUnix(normal){
+    return (new dt (normal)).getTime() / 1000;
+}*/
+
 function showForecast (d) {
         //var celcius = Math.round(parseFloat(d.main.temp)-273.15);
           //document.getElementById('date').innerHTML = d.list[0].sys.dt_txt; 
@@ -66,6 +70,7 @@ function showForecast (d) {
          //document.getElementById('name').innerHTML = d.city.name;
           document.getElementById('wind').innerHTML = d.list[0].wind.speed + 'm/s';
           document.getElementById('humidity').innerHTML = d.list[0].main.humidity + '%'
+          document.getElementById('dt').innerHTML = d.list[0].dt
       
       }
     
