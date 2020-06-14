@@ -46,11 +46,11 @@ L.control.scale(
 
 //Leaflet Reachability
 
-let bikeicon = L.divIcon({
-    html: '<i class="fas fa-bicycle"></i>',
-    iconSize: [20, 20],
-    className: 'myDivIcon'
-});
+// let bikeicon = L.divIcon({
+//     html: '<i class="fas fa-bicycle"></i>',
+//     iconSize: [20, 20],
+//     className: 'myDivIcon'
+// });
 
 L.control.reachability({
     // add settings/options here
@@ -66,36 +66,36 @@ L.control.reachability({
     //Ab hier geht's nicht mehr...
 
     travelModeButton2Content: '',
-    travelModeButton2StyleClass: bikeicon,
+    travelModeButton2StyleClass: 'fa fa-plug',
     travelModeButton2Tooltip: 'Fortbewegungsart: e-bike',
     travelModeProfile2: 'cycling-electric',
 
     travelModeButton3Content: '',
-    travelModeButton3StyleClass: 'fas fa-walking',
+    travelModeButton3StyleClass: 'fa fa-male',
     travelModeButton3Tooltip: 'Fortbewegungsart: zu Fuß',
     travelModeProfile3: 'foot-walking',
 
     travelModeButton4Content: '',
-    travelModeButton4StyleClass: 'fas fa-car',
+    travelModeButton4StyleClass: 'fa fa-automobile',
     travelModeButton4Tooltip: 'Fortbewegungsart: Auto',
     travelModeProfile4: 'car',
 
     //Styling edit-Buttons
 
     drawButtonContent:'',
-    drawButtonStyleClass:'fas fa-pencil-alt',
-    drawButtonTooltip:'Ausgangspunkt setzen',
+    drawButtonStyleClass:'fa fa-paint-brush',
+    drawButtonTooltip:'Ausgangspunkt zeichnen',
 
     deleteButtonContent:'',
-    deleteButtonStyleClass:'fas fa-trash-alt',
+    deleteButtonStyleClass:'fa fa-trash',
     deleteButtonTooltip:'Reichweite löschen',
 
     distanceButtonContent:'',
-    distanceButtonStyleClass: "  fas fa-road  ",
+    distanceButtonStyleClass: "  fa fa-road  ",
     distanceButtonTooltip: "Reichweite nach Distanz",
 
     timeButtonContent:"",
-    timeButtonStyleClass: "far fa-clock",
+    timeButtonStyleClass: "fa fa-hourglass-3",
     timeButtonTooltip: "Reichweite nach Zeit",
 
     rangeControlDistanceTitle: "Distanz",
