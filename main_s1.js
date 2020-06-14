@@ -265,17 +265,18 @@ L.geoJson.ajax(radwegeUrl, {
     },
     style: function (feature) {
         return {
-            color: "yellow",
+            color: "gold",
             weight: 2
         };
     },
     onEachFeature: function (feature, layer) {
         let textneben = "a";
         if (feature.properties.M18_RANG_SUB === "N") {
-            textneben = "Sonstige Radroute"
+            textneben = "Sonstige Radroute (Nebennetz Bestand)"
         }
         layer.bindPopup(`<p>${feature.properties.STRNAM}</p>
-        <p><b>Rang: </b>${textneben}</p>`)
+        <p><b>Rang: </b>${textneben}</p>
+        <p>Das Nebennetz sind jene Teile, die nicht im Hauptradwegenetz liegen.</p>`)
     }
 
 }).addTo(radwegenebenGroup)
@@ -288,17 +289,18 @@ L.geoJson.ajax(radwegeUrl, {
     },
     style: function (feature) {
         return {
-            color: "yellow",
+            color: "goldenrod",
             weight: 2
         };
     },
     onEachFeature: function (feature, layer) {
         let texterweitert = "a";
         if (feature.properties.M18_RANG_SUB === "E") {
-            texterweitert = "Sonstige Radroute"
+            texterweitert = "Sonstige Radroute (Erweitertes Grundetz)"
         }
         layer.bindPopup(`<p>${feature.properties.STRNAM}</p>
-        <p><b>Rang: </b>${texterweitert}</p>`)
+        <p><b>Rang: </b>${texterweitert}</p>
+        <p>Das erweiterte Grundetz beinhaltet zusätzliche bezirksinterne Verbindungen. Diese Wege erhöhen die Netzabdeckung, indem sie wichtige Zielpunkte erschließen.</p>`)
     }
 
 }).addTo(radwegenebenGroup)
