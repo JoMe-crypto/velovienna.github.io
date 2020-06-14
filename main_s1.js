@@ -26,11 +26,7 @@ let radwegenebenGroup = L.featureGroup();
 
 L.control.layers({
     "BasemapAT": startLayer,
-    "CycleOSM": L.tileLayer.provider("CyclOSM"),
-    // "BasemapAT.terrain": L.tileLayer.provider("BasemapAT.terrain"),
-    // "BasemapAT.surface": L.tileLayer.provider("BasemapAT.surface"),
     "BasemapAT.orthofoto": L.tileLayer.provider("BasemapAT.orthofoto"),
-    "Stamen.Terrain": L.tileLayer.provider("Stamen.Terrain"),
     "OpenTopoMap": L.tileLayer.provider("OpenTopoMap")
 }, {
     "Abstellanlagen": abstellGroup,
@@ -48,33 +44,53 @@ L.control.scale(
 ).addTo(map);
 
 
+//Leaflet Reachability
 
+let bikeicon = L.divIcon({
+    html: '<i class="fas fa-bicycle"></i>',
+    iconSize: [20, 20],
+    className: 'myDivIcon'
+});
 
 L.control.reachability({
     // add settings/options here
     apiKey: '5b3ce3597851110001cf624830698b53da4140619578c92c3cea3ca5',
 
-    rangeControlDistanceTitle: "Distanz",
-    rangeControlDistanceMax: 10,
-    rangeControlDistanceInterval: 1,
-    rangeControlTimeTitle: "Zeit",
-    rangeControlTimeMax: 60,
-    rangeControlTimeInterval: 10,
+    //Styling travel Mode Buttons
 
-    travelModeProfile1: "car",
-    travelModeProfile2: "cycling-regular",
-    travelModeProfile3: "cycling-electric",
-    travelModeProfile4: "foot-walking",
+    travelModeButton1Content: '',
+    travelModeButton1StyleClass: 'fa fa-bicycle',
+    travelModeButton1Tooltip: 'Fortbewegungsart: Fahrrad',
+    travelModeProfile1: 'cycling-regular',
 
-    drawButtonContent:"",
-    drawButtonStyleClass: "fas fa-pencil-alt",
-    drawButtonTooltip: "Ausganspunkt setzen",
+    //Ab hier geht's nicht mehr...
 
-    deleteButtonContent:"",
-    deleteButtonStyleClass: "  fas fa-trash-alt  ",
-    deleteButtonTooltip: "Reichweite löschen",
+    travelModeButton2Content: '',
+    travelModeButton2StyleClass: bikeicon,
+    travelModeButton2Tooltip: 'Fortbewegungsart: e-bike',
+    travelModeProfile2: 'cycling-electric',
 
-    distanceButtonContent:"",
+    travelModeButton3Content: '',
+    travelModeButton3StyleClass: 'fas fa-walking',
+    travelModeButton3Tooltip: 'Fortbewegungsart: zu Fuß',
+    travelModeProfile3: 'foot-walking',
+
+    travelModeButton4Content: '',
+    travelModeButton4StyleClass: 'fas fa-car',
+    travelModeButton4Tooltip: 'Fortbewegungsart: Auto',
+    travelModeProfile4: 'car',
+
+    //Styling edit-Buttons
+
+    drawButtonContent:'',
+    drawButtonStyleClass:'fas fa-pencil-alt',
+    drawButtonTooltip:'Ausgangspunkt setzen',
+
+    deleteButtonContent:'',
+    deleteButtonStyleClass:'fas fa-trash-alt',
+    deleteButtonTooltip:'Reichweite löschen',
+
+    distanceButtonContent:'',
     distanceButtonStyleClass: "  fas fa-road  ",
     distanceButtonTooltip: "Reichweite nach Distanz",
 
@@ -82,25 +98,17 @@ L.control.reachability({
     timeButtonStyleClass: "far fa-clock",
     timeButtonTooltip: "Reichweite nach Zeit",
 
-    travelModeButton1Content: "",
-    travelModeButton1StyleClass: "fas fa-car",
-    travelModeButton1Tooltip: "Fortbewegungsart: Auto",
-
-    travelModeButton2Content: "",
-    travelModeButton2StyleClass: "fas fa-bicycle",
-    travelModeButton2Tooltip: "Fortbewegungsart: Rad",
-
-    travelModeButton3Content: "",
-    travelModeButton3StyleClass: "fas fa-charging-station",
-    travelModeButton3Tooltip: "Fortbewegungsart: e-bike",
-
-    travelModeButton4Content: "",
-    travelModeButton4StyleClass: "fas fa-walking",
-    travelModeButton4Tooltip: "Fortbewegungsart: zu Fuß",
-
-
-
+    rangeControlDistanceTitle: "Distanz",
+    rangeControlDistanceMax: 10,
+    rangeControlDistanceInterval: 1,
+    rangeControlTimeTitle: "Zeit",
+    rangeControlTimeMax: 60,
+    rangeControlTimeInterval: 10
+      
 }).addTo(map);
+
+
+
 
 
 let abstellUrl = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FAHRRADABSTELLANLAGEOGD&srsName=EPSG:4326&outputFormat=json";
@@ -257,17 +265,18 @@ L.geoJson.ajax(radwegeUrl, {
     },
     style: function (feature) {
         return {
-            color: "yellow",
+            color: "gold",
             weight: 2
         };
     },
     onEachFeature: function (feature, layer) {
         let textneben = "a";
         if (feature.properties.M18_RANG_SUB === "N") {
-            textneben = "Sonstige Radroute"
+            textneben = "Sonstige Radroute (Nebennetz Bestand)"
         }
         layer.bindPopup(`<p>${feature.properties.STRNAM}</p>
-        <p><b>Rang: </b>${textneben}</p>`)
+        <p><b>Rang: </b>${textneben}</p>
+        <p>Das Nebennetz sind jene Teile, die nicht im Hauptradwegenetz liegen.</p>`)
     }
 
 }).addTo(radwegenebenGroup)
@@ -280,17 +289,18 @@ L.geoJson.ajax(radwegeUrl, {
     },
     style: function (feature) {
         return {
-            color: "yellow",
+            color: "goldenrod",
             weight: 2
         };
     },
     onEachFeature: function (feature, layer) {
         let texterweitert = "a";
         if (feature.properties.M18_RANG_SUB === "E") {
-            texterweitert = "Sonstige Radroute"
+            texterweitert = "Sonstige Radroute (Erweitertes Grundetz)"
         }
         layer.bindPopup(`<p>${feature.properties.STRNAM}</p>
-        <p><b>Rang: </b>${texterweitert}</p>`)
+        <p><b>Rang: </b>${texterweitert}</p>
+        <p>Das erweiterte Grundetz beinhaltet zusätzliche bezirksinterne Verbindungen. Diese Wege erhöhen die Netzabdeckung, indem sie wichtige Zielpunkte erschließen.</p>`)
     }
 
 }).addTo(radwegenebenGroup)

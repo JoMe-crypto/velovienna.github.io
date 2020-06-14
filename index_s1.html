@@ -6,27 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>velovienna - overview</title>
 
-    <!--Font awesome (für icons)-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
-    <!--Icon library (laut reachability plugin)-->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/> -->
-    <!--another version and trial-->
-    <!-- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
-
+    
     <!--Google fonts einbauen-->
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300&display=swap" rel="stylesheet">
 
     <!--CSS und Javascript-->
     <script defer src="main_s1.js"></script>
     <link rel="stylesheet" href="main_s1.css">
-
-    <!--Leaflet für Karte-->
-    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-        crossorigin=""></script> -->
 
     <!--Leaflet providers (Hintergrundkarte)-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
@@ -41,30 +27,40 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
     <!--Leaflet Reachability-->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.0/leaflet.reachability.css" />
-    <script src="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.0/leaflet.reachability.js">
-    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.0/leaflet.reachability.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/trafforddatalab/leaflet.reachability@v2.0.0/leaflet.reachability.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <!--Font awesome (für icons)-->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script> -->
+
+
+
 </head>
 
 
 
 <body>
-    <header>
-        <header>
 
-            <img class="banner" src="images/radfahrer.png" alt="Radfahrer in der Stadt">
-            <h1> <i class="fas fa-bicycle"></i> Velovienna – Wien für Radfahrer <i class="fas fa-bicycle"></i> </h1>
-            <nav>
-                <!-- Achtung! Die Links stimmen noch nicht!!! -->
-                <a class="link" href="https://velovienna.github.io/index_s2.html">Themenradwege</a>
-                <a class="link" href="https://velovienna.github.io/index_s3.html">Wetterinformationen</a>
-            </nav>
+        <header>
+        
+            <img src="images/Header_Bild.jpg" alt="Titelbild">
+    
+            <ul>
+                <li><a href="https://velovienna.github.io/index_s1.html"><b>Radfahren in Wien</b></a></li>
+                <li><a href="https://velovienna.github.io/index_s2.html">Themenradwege</a></li>
+                <li><a href="https://velovienna.github.io/index_s3.html">Wetterinformationen</a></li>
+            </ul>
+        
         </header>
-    </header>
+
+
+    
     <main>
-        <h2>Gut zu wissen</h2>
-        <p> Das Radwegenetz in Wien hat eine Gesamtlänge von etwa 1.431km. Zusätzlich können Radfahrende in Wien das
+        <h1>Velovienna – Wien für Radfahrer</h1>
+        <h2 >Gut zu wissen</h2>
+        <p class="textstyle"> Das Radwegenetz in Wien hat eine Gesamtlänge von etwa 1.431km. Zusätzlich können Radfahrende in Wien das
             Einbahnwegenetz vielerorts auch gegen die Einbahn befahren, und zwar auf insgesamt 311.912km.<br />
             Am Ziel angekommen stehen für Radfahrende 49.100 Radabstellplätze zur Verfügung. Seit 2010 hat sich die
             Anzahl von damals noch 27.249 fast verdoppelt.
@@ -80,17 +76,16 @@
                 Seite 24) </i> <br /> Alle Zahlen wurden dem <a
                 href="https://www.fahrradwien.at/wp-content/uploads/sites/2/2020/02/Mobilitaetsreport_2019_screen.pdf">Mobilitätsreport
                 2019</a> entnommen.</p>
-        <h2>Radinfrastruktur</h2>
-        <p>Egal ob du mit dem Rad in die Arbeit oder in die Schule unterwegs bist, oder eine sportliche Runde drehen
+        <h2 class="otherh2">Radinfrastruktur</h2>
+        <p class="textstyle">Egal ob du mit dem Rad in die Arbeit oder in die Schule unterwegs bist, oder eine sportliche Runde drehen
             willst: Wien bietet ausreichend Möglichkeiten, damit jeder fündig wird. In der Karte sind die Basisrouten
-            (rot) und das Grundnetz (orange) eingezeichnet. Nähere Informationen zum Rang der jeweiligen Route, erhälts
+            (rot) und das Grundnetz (orange) eingezeichnet. Sonstige Radrouten (dunkelgelb bzw. gelb) kannst du mit dem Button "Radwege - Neben" zuschalten. Nähere Informationen zum Rang der jeweiligen Route, erhälts
             du, wenn du auf die Linie klickst. </p>
         
-        <!-- <div id="map" data-lat="48.208354" data-long="16.372504"></div> -->
         <div id="map"></div>
 
-        <h3>Weiterführende Informationen</h3>
-        <p>Bei diesen Adressen findest du weitere Informationen zum Radfahren in Wien. </p>
+        <h2 class="otherh2">Weiterführende Informationen</h2>
+        <p class="textstyle">Bei diesen Adressen findest du weitere Informationen zum Radfahren in Wien. </p>
         <ul>
             <li>Die <a href="https://www.radlobby.at/wien">Radlobby Wien</a> setzt sich für Radfahrende in der
                 Landeshauptstadt ein. Auf ihrer Webseite informieren sie über aktuelle Projekte und Entwicklungen.</li>
@@ -114,13 +109,14 @@
         </ul>
     </main>
     <footer>
-        <h2>Datenquellen</h2>
+        <h3 class="footerh3">Datenquellen</h3>
         <p>Alle Datensätze von data.gv.at: <a
                 href="https://www.data.gv.at/katalog/dataset/523ba2e4-8c55-4dde-8acf-39e3621811b0">Citybike-Standorte</a>,<a
                 href="https://www.data.gv.at/katalog/dataset/97ef14eb-f280-48a7-96c0-df03859b06c2">Radabstellplätze</a>,
             <a href="https://www.data.gv.at/katalog/dataset/1ea3d3e8-fa07-4c37-af68-eb588d439de2">Radwege</a></p>
-        <p><a href="https://digitales.wien.gv.at/site/icons/">Icons</a></p>
-        <p>(c) David, Johannes, Pia 2020</p>
+        <p><a href="https://digitales.wien.gv.at/site/icons/">Kartensymbole</a>,
+            <a href="https://fontawesome.com">Icons</a></p>
+        <p>&copy; Feiel, Melchert, Reisenauer 2020</p>
     </footer>
 
 </body>
