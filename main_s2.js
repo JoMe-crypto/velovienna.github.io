@@ -1,6 +1,6 @@
 
 
-let startLayer = L.tileLayer.provider("BasemapAT.grau");
+let startLayer = L.tileLayer.provider("BasemapAT");
 
 let map = L.map("map", {
     center: [48.208333, 16.373056],
@@ -9,14 +9,6 @@ let map = L.map("map", {
         startLayer
     ]
 });
-
-var north = L.control({position: "bottomright"});
-north.onAdd = function(map) {
-    var div = L.DomUtil.create("div", "info legend");
-    div.innerHTML = '<img src="your-north-arrow.png">';
-    return div;
-}
-north.addTo(map);
 
 // Layer Auswahl
 
