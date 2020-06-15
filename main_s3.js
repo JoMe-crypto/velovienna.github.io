@@ -70,7 +70,7 @@ function showForecast (d) {
          //document.getElementById('name').innerHTML = d.city.name;
           document.getElementById('wind').innerHTML = d.list[0].wind.speed + 'm/s';
           document.getElementById('humidity').innerHTML = d.list[0].main.humidity + '%'
-          document.getElementById('dt').innerHTML = d.list[0].dt
+          //document.getElementById('dt').innerHTML = d.list[0].dt
       
       }
     
