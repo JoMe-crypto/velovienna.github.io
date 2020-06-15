@@ -63,8 +63,6 @@ L.control.reachability({
     travelModeButton1Tooltip: 'Fortbewegungsart: Fahrrad',
     travelModeProfile1: 'cycling-regular',
 
-    //Ab hier geht's nicht mehr...
-
     travelModeButton2Content: '',
     travelModeButton2StyleClass: 'fa fa-plug',
     travelModeButton2Tooltip: 'Fortbewegungsart: e-bike',
@@ -78,7 +76,7 @@ L.control.reachability({
     travelModeButton4Content: '',
     travelModeButton4StyleClass: 'fa fa-automobile',
     travelModeButton4Tooltip: 'Fortbewegungsart: Auto',
-    travelModeProfile4: 'car',
+    travelModeProfile4: 'driving-car',
 
     //Styling edit-Buttons
 
