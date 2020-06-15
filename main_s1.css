@@ -176,3 +176,24 @@ header a {
 #beschreibung {
     text-align: center;
 }
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+    text-align: left;
+}
+
+td {
+    border: 1px solid #dddddd;
+    text-align: left; 
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd
+}
+
+address {
+text-align: right;
+}
