@@ -201,24 +201,24 @@ header li a:hover {
 #beschreibung {
     text-align: center;
 }
-table {
+#info table {
     border-collapse: collapse;
     width: 100%;
 }
-th {
+#info th {
     text-align: left;
 }
 
-td {
+#info td {
     border: 1px solid #dddddd;
     text-align: left; 
     padding: 10px;
 }
 
-tr:nth-child(even) {
+#info tr:nth-child(even) {
     background-color: #dddddd
 }
 
-address {
+#info address {
 text-align: right;
 }
