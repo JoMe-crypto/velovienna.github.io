@@ -7,11 +7,6 @@ let map = L.map("map", {
     ]
 });
 
-let overlay ={
-    stations: L.featureGroup(),
-    temperature: L.featureGroup()
-}
-
 L.control.layers({
     "BasemapAT": startLayer,
     "BasemapAT.orthofoto":L.tileLayer.provider("BasemapAT.orthofoto"),
