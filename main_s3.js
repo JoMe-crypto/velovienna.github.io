@@ -61,16 +61,31 @@ function weatherInfo(id=2761369) {
 function normalTimeUnix(normal){
     return (new dt (normal)).getTime() / 1000;
 }*/
+function Unix_timestamp(t)
+      {
+      var dt = new Date(t*1000);
+      var hr = dt.getHours();
+      var m = "0" + dt.getMinutes();
+      var s = "0" + dt.getSeconds();
+      return hr+ ':' + m.substr(-2) + ':' + s.substr(-2);  
+      }
+      
+      console.log(Unix_timestamp(d.list[0].dt));
 
-function showForecast (d) {
+    
+
+function showForecast (d) {    
         //var celcius = Math.round(parseFloat(d.main.temp)-273.15);
           //document.getElementById('date').innerHTML = d.list[0].sys.dt_txt; 
           document.getElementById('description').innerHTML = d.list[0].weather[0].description;
           document.getElementById('temp').innerHTML = d.list[0].main.temp + '&degC';
          //document.getElementById('name').innerHTML = d.city.name;
           document.getElementById('wind').innerHTML = d.list[0].wind.speed + 'm/s';
-          document.getElementById('humidity').innerHTML = d.list[0].main.humidity + '%'
-          //document.getElementById('dt').innerHTML = d.list[0].dt
+          document.getElementById('humidity').innerHTML = d.list[0].main.humidity + '%';
+          document.getElementById('dt').innerHTML = d.list[0].dt;
+          var Zeit = Unix_timestamp(d.list[0].dt);
+          document.getElementById('dt').innerHTML = Zeit;
+          console.log(d.list[0].dt);
       
       }
     
@@ -96,4 +111,5 @@ function showÜbermorgen (d) {
       
       }
       
-      
+    
+
