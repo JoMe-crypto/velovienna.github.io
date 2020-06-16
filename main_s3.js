@@ -14,13 +14,8 @@ let overlay ={
 
 L.control.layers({
     "BasemapAT": startLayer,
-    "CycleOSM": L.tileLayer.provider("CyclOSM"),
     "BasemapAT.orthofoto":L.tileLayer.provider("BasemapAT.orthofoto"),
-    "Stamen.Terrain": L.tileLayer.provider("Stamen.Terrain"),
     "OpenTopoMap": L.tileLayer.provider("OpenTopoMap")
-}, {
-    "Wetterstationen Österreich": overlay.stations,
-    "Tempertaur °C": overlay.temperature
 }).addTo(map);
 
 let rainviewer = L.control.rainviewer({
