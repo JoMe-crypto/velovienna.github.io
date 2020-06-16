@@ -216,7 +216,7 @@ header li a:hover {
 }
 
 #info tr:nth-child(even) {
-    background-color: darkgray;
+    background-color: lightgray;
 }
 
 #info address {
