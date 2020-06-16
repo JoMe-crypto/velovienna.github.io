@@ -75,7 +75,6 @@ function showJetzt (d) {
           document.getElementById('dt').innerHTML = d.list[0].dt;
           var Zeit = Unix_timestamp(d.list[0].dt);
           document.getElementById('dt').innerHTML = Zeit;
-          console.log(d.list[0].dt);
       
       }
     
@@ -89,7 +88,6 @@ function showJetztdrei (d) {
           document.getElementById('humidity_1').innerHTML = d.list[1].main.humidity + '%';
           var Zeit = Unix_timestamp(d.list[1].dt);
           document.getElementById('dt_1').innerHTML = Zeit;
-          console.log(d.list[0].dt);
       
       }
     
@@ -101,6 +99,8 @@ function showJetztsechs (d) {
          // document.getElementById('name').innerHTML = d.city.name;
           document.getElementById('wind_2').innerHTML = d.list[2].wind.speed + 'm/s';
           document.getElementById('humidity_2').innerHTML = d.list[2].main.humidity + '%'
+          var Zeit = Unix_timestamp(d.list[2].dt);
+          document.getElementById('dt_2').innerHTML = Zeit;
       
       }
       
