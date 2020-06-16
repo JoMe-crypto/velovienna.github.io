@@ -29,9 +29,9 @@ function weatherInfo(id=2761369) {
     fetch('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=Vienna,AT&units=metric&APPID=e105b8b9538822cec7ff5f7d006f2e9a')  
         .then(function(resp) { return resp.json() }) 
         .then(function(data) {
-          showForecast(data);
-          showMorgen(data);
-          showÜbermorgen(data);
+          showJetzt(data);
+          showJetztdrei(data);
+          showJetztsechs(data);
         })
         .catch(function() {
         
@@ -64,7 +64,7 @@ function Unix_timestamp(t)
 
     
 
-function showForecast (d) {    
+function showJetzt (d) {    
         //var celcius = Math.round(parseFloat(d.main.temp)-273.15);
           //document.getElementById('date').innerHTML = d.list[0].sys.dt_txt; 
           document.getElementById('description').innerHTML = d.list[0].weather[0].description;
@@ -79,18 +79,21 @@ function showForecast (d) {
       
       }
     
-function showMorgen (d) {
+function showJetztdrei (d) {
         //var celcius = Math.round(parseFloat(d.main.temp)-273.15);
           //document.getElementById('date').innerHTML = d.list[1].sys.dt_txt; 
           document.getElementById('description_1').innerHTML = d.list[1].weather[0].description;
           document.getElementById('temp_1').innerHTML = d.list[1].main.temp + '&degC';
          // document.getElementById('name').innerHTML = d.city.name;
           document.getElementById('wind_1').innerHTML = d.list[1].wind.speed + 'm/s';
-          document.getElementById('humidity_1').innerHTML = d.list[1].main.humidity + '%'
+          document.getElementById('humidity_1').innerHTML = d.list[1].main.humidity + '%';
+          var Zeit = Unix_timestamp(d.list[1].dt);
+          document.getElementById('dt_1').innerHTML = Zeit;
+          console.log(d.list[0].dt);
       
       }
     
-function showÜbermorgen (d) {
+function showJetztsechs (d) {
         //var celcius = Math.round(parseFloat(d.main.temp)-273.15);
           //document.getElementById('date').innerHTML = d.list[1].sys.dt_txt; 
           document.getElementById('description_2').innerHTML = d.list[2].weather[0].description;
