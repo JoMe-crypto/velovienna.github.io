@@ -17,8 +17,15 @@
     
 }
 
+.white,
+.white a:link,
+.white a:visited {
+    color: white;
+
+}
+
 header ul {
-    /* background-color: green; */
+    
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -57,11 +64,12 @@ header li a {
 
 }
 
-.white,
-.white a:link,
-.white a:visited {
-    color: white;
+header li a:hover {
+    background-color: red;
+}
 
+#seite_1 #nav_1, #seite_2 #nav_2, #seite_3 #nav_3 {
+    background-color: darkgrey;
 }
 
  /* style footer */
