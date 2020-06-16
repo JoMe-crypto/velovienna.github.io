@@ -89,6 +89,7 @@ h1 {
     color: whitesmoke;
     background-color: indianred;
     border-radius: 0.7em;
+    padding: 5px;
     border-color: indianred;
     margin-top: 4em;
 }
