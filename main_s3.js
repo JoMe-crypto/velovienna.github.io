@@ -13,6 +13,12 @@ L.control.layers({
     "OpenTopoMap": L.tileLayer.provider("OpenTopoMap")
 }).addTo(map);
 
+L.control.scale(
+    metric= true, 
+    imperial= false, 
+    position="bottomleft"
+).addTo(map);
+
 let rainviewer = L.control.rainviewer({
     position: 'bottomleft',
     nextButtonText: '>',
