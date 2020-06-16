@@ -20,8 +20,7 @@
 .white,
 .white a:link,
 .white a:visited {
-    color: white;
-
+    color: black;
 }
 
 header ul {
