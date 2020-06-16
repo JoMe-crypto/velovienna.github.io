@@ -64,13 +64,15 @@ header li a {
 
 }
 
-header li a:hover {
-    background-color: red;
-}
-
 #seite_1 #nav_1, #seite_2 #nav_2, #seite_3 #nav_3 {
     background-color: darkgrey;
 }
+
+header li a:hover {
+    color: red;
+}
+
+
 
  /* style footer */
 
